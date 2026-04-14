@@ -1,5 +1,6 @@
-import { Leaf, Shield, Heart, BookOpen, AlertTriangle } from "lucide-react";
+import { Shield, Heart, BookOpen, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import sidrLogo from "@/assets/logo.png";
 
 interface Props {
   onAccept: () => void;
@@ -10,8 +11,8 @@ export default function WelcomeScreen({ onAccept }: Props) {
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 py-10">
       {/* Logo */}
       <div className="flex flex-col items-center gap-4 mb-8">
-        <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center glow-primary">
-          <Leaf className="h-12 w-12 text-primary" />
+        <div className="h-28 w-28 glow-primary">
+          <img src={sidrLogo} alt="سِدر" className="h-full w-full object-contain" />
         </div>
         <h1 className="font-heading text-4xl font-bold text-gradient-primary">سِدر</h1>
         <p className="text-muted-foreground text-center text-sm max-w-xs">

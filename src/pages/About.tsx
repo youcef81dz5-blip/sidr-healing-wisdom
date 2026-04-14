@@ -1,4 +1,5 @@
-import { ArrowRight, Leaf, Shield, BookOpen, Heart, Users, Mail } from "lucide-react";
+import { ArrowRight, Shield, BookOpen, Heart, Users, Mail } from "lucide-react";
+import sidrLogo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -19,8 +20,8 @@ export default function AboutPage() {
       <main className="mx-auto max-w-lg px-4 py-6 space-y-6 pb-8">
         {/* Logo & Intro */}
         <div className="text-center space-y-3">
-          <div className="mx-auto h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center glow-primary">
-            <Leaf className="h-10 w-10 text-primary" />
+          <div className="mx-auto h-24 w-24 glow-primary">
+            <img src={sidrLogo} alt="سِدر" className="h-full w-full object-contain" />
           </div>
           <h2 className="font-heading text-2xl font-bold text-gradient-primary">سِدر</h2>
           <p className="text-sm text-muted-foreground leading-relaxed">
