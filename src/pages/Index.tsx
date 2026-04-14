@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+import sidrLogo from "@/assets/logo.png";
 import { Camera, Upload, Send, Loader2, Leaf, X, BookOpen, HelpCircle, Shield, Info, Heart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -133,7 +134,7 @@ export default function Index() {
       <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-lg items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <Leaf className="h-6 w-6 text-primary" />
+            <img src={sidrLogo} alt="سِدر" className="h-8 w-8 rounded-lg object-contain" />
             <h1 className="font-heading text-2xl font-bold text-gradient-primary">سِدر</h1>
           </div>
           <div className="relative">
@@ -166,8 +167,8 @@ export default function Index() {
         {!result && !loading && !showFollowUp && (
           <>
             <div className="text-center space-y-2 py-4">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 glow-primary">
-                <Leaf className="h-10 w-10 text-primary" />
+              <div className="mx-auto h-24 w-24 glow-primary">
+                <img src={sidrLogo} alt="سِدر" className="h-full w-full object-contain" />
               </div>
               <h2 className="font-heading text-xl font-bold text-foreground">حكيمك الطبيعي</h2>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">
