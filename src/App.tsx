@@ -10,6 +10,7 @@ import Privacy from "./pages/Privacy.tsx";
 import FAQ from "./pages/FAQ.tsx";
 import Conditions from "./pages/Conditions.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Books from "./pages/Books.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/herbs" element={<HerbEncyclopedia />} />
+          <Route path="/books" element={<Books />} />
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/faq" element={<FAQ />} />

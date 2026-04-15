@@ -114,6 +114,7 @@ export default function Index() {
 
   const menuItems = [
     { icon: BookOpen, label: "موسوعة الأعشاب", path: "/herbs" },
+    { icon: BookOpen, label: "مكتبة الكتب", path: "/books" },
     { icon: Heart, label: "حالات شائعة", path: "/conditions" },
     { icon: HelpCircle, label: "أسئلة شائعة", path: "/faq" },
     { icon: Info, label: "من نحن", path: "/about" },
