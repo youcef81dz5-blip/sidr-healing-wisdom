@@ -134,13 +134,15 @@ Deno.serve(async (req) => {
         contents: [{ parts }],
         generationConfig: {
           temperature: 0.3,
-          maxOutputTokens: 4096,
+          maxOutputTokens: 8192,
+          responseMimeType: "application/json",
         },
       }),
     });
 
     if (!geminiResponse.ok) {
-      console.error("Gemini API error:", geminiResponse.status);
+      const errBody = await geminiResponse.text();
+      console.error("Gemini API error:", geminiResponse.status, errBody);
       return new Response(
         JSON.stringify({ error: "حدث خطأ أثناء التحليل، يرجى المحاولة لاحقاً" }),
         { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -151,6 +153,8 @@ Deno.serve(async (req) => {
     const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!rawText) {
+      const finishReason = data.candidates?.[0]?.finishReason;
+      console.error("No text in response. finishReason:", finishReason);
       return new Response(
         JSON.stringify({ error: "لم يتم الحصول على استجابة من الذكاء الاصطناعي" }),
         { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -162,7 +166,36 @@ Deno.serve(async (req) => {
       cleaned = cleaned.replace(/^```json?\s*/, "").replace(/```\s*$/, "");
     }
 
-    const result = JSON.parse(cleaned);
+    let result;
+    try {
+      result = JSON.parse(cleaned);
+    } catch (parseErr) {
+      console.error("JSON parse failed, attempting repair. Length:", cleaned.length);
+      // Try to fix truncated JSON by closing open structures
+      let repaired = cleaned;
+      const openBraces = (repaired.match(/{/g) || []).length;
+      const closeBraces = (repaired.match(/}/g) || []).length;
+      const openBrackets = (repaired.match(/\[/g) || []).length;
+      const closeBrackets = (repaired.match(/\]/g) || []).length;
+      
+      // Remove trailing incomplete string/value
+      repaired = repaired.replace(/,\s*"[^"]*$/, "");
+      repaired = repaired.replace(/,\s*$/, "");
+      repaired = repaired.replace(/:\s*"[^"]*$/, ': ""');
+      
+      for (let i = 0; i < openBrackets - closeBrackets; i++) repaired += "]";
+      for (let i = 0; i < openBraces - closeBraces; i++) repaired += "}";
+      
+      try {
+        result = JSON.parse(repaired);
+      } catch {
+        console.error("JSON repair also failed");
+        return new Response(
+          JSON.stringify({ error: "تعذر تحليل استجابة الذكاء الاصطناعي، يرجى المحاولة مرة أخرى" }),
+          { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
 
     return new Response(JSON.stringify(result), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
