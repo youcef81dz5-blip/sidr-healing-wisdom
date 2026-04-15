@@ -136,8 +136,12 @@ export default function Books() {
           <div className="grid gap-4 sm:grid-cols-2">
             {books.filter(b => b.type === "local").map(book => (
               <Card key={book.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <img src={book.cover} alt={book.title} loading="lazy" width={512} height={720} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4 text-center">
+                    <h4 className="font-amiri text-xl font-bold text-white leading-relaxed drop-shadow-lg">{book.title}</h4>
+                    <p className="text-white/80 text-sm mt-1 font-tajawal">{book.author}</p>
+                  </div>
                 </div>
                 <CardContent className="p-4">
                   <h4 className="font-amiri text-lg font-bold text-foreground mb-1">{book.title}</h4>
@@ -164,8 +168,12 @@ export default function Books() {
           <div className="grid gap-4 sm:grid-cols-2">
             {books.filter(b => b.type === "external").map(book => (
               <Card key={book.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-40 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <img src={book.cover} alt={book.title} loading="lazy" width={512} height={720} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-3 text-center">
+                    <h4 className="font-amiri text-lg font-bold text-white leading-relaxed drop-shadow-lg">{book.title}</h4>
+                    <p className="text-white/80 text-xs mt-1 font-tajawal">{book.author}</p>
+                  </div>
                 </div>
                 <CardContent className="p-4">
                   <h4 className="font-amiri text-lg font-bold text-foreground mb-1">{book.title}</h4>
