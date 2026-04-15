@@ -127,8 +127,8 @@ export async function analyzeCondition(
   });
 
   if (!response.ok) {
-    const err = await response.text();
-    throw new Error(`خطأ في الاتصال بالذكاء الاصطناعي: ${err}`);
+    console.error("Gemini API error:", response.status);
+    throw new Error("حدث خطأ أثناء التحليل، يرجى المحاولة لاحقاً");
   }
 
   const data = await response.json();
