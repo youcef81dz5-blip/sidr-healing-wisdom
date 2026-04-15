@@ -29,7 +29,7 @@ const books: Book[] = [
     author: "مكتبة نور",
     description: "كتاب شامل يجمع بين الطب النبوي والتداوي بالأعشاب الطبيعية، مع وصفات علاجية موثقة.",
     type: "local",
-    url: "/books/التداوي_بالأعشاب_والطب_النبوي.pdf",
+    url: "/books/herbal-prophetic-medicine.pdf",
     cover: book1Cover,
   },
   {
@@ -38,7 +38,7 @@ const books: Book[] = [
     author: "ابن القيم الجوزية",
     description: "من أهم المراجع في الطب النبوي، يتناول العلاجات النبوية والأدوية الطبيعية المذكورة في السنة.",
     type: "local",
-    url: "/books/الطب_النبوي.pdf",
+    url: "/books/prophetic-medicine.pdf",
     cover: book2Cover,
   },
   {
