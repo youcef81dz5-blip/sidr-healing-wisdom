@@ -3,6 +3,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import sidrLogo from "@/assets/logo.png";
+import book1Cover from "@/assets/books/book1.jpg";
+import book2Cover from "@/assets/books/book2.jpg";
+import book3Cover from "@/assets/books/book3.jpg";
+import book4Cover from "@/assets/books/book4.jpg";
+import book5Cover from "@/assets/books/book5.jpg";
+import book6Cover from "@/assets/books/book6.jpg";
+import book7Cover from "@/assets/books/book7.jpg";
+import book8Cover from "@/assets/books/book8.jpg";
 
 interface Book {
   id: number;
@@ -11,7 +19,7 @@ interface Book {
   description: string;
   type: "local" | "external";
   url: string;
-  coverColor: string;
+  cover: string;
 }
 
 const books: Book[] = [
@@ -22,7 +30,7 @@ const books: Book[] = [
     description: "كتاب شامل يجمع بين الطب النبوي والتداوي بالأعشاب الطبيعية، مع وصفات علاجية موثقة.",
     type: "local",
     url: "/books/التداوي_بالأعشاب_والطب_النبوي.pdf",
-    coverColor: "from-primary/80 to-primary",
+    cover: book1Cover,
   },
   {
     id: 2,
@@ -31,7 +39,7 @@ const books: Book[] = [
     description: "من أهم المراجع في الطب النبوي، يتناول العلاجات النبوية والأدوية الطبيعية المذكورة في السنة.",
     type: "local",
     url: "/books/الطب_النبوي.pdf",
-    coverColor: "from-accent/80 to-accent",
+    cover: book2Cover,
   },
   {
     id: 3,
@@ -40,7 +48,7 @@ const books: Book[] = [
     description: "مرجع تراثي في الطب بالأعشاب من التراث المغاربي.",
     type: "external",
     url: "https://www.noor-book.com/ebook-%D8%A7%D9%84%D8%AA%D8%AF%D8%A7%D9%88%D9%8A-%D8%A8%D8%A7%D9%84%D8%A7%D8%B9%D8%B4%D8%A7%D8%A8-%D9%88%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D8%A7%D8%AA-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D9%87-%D9%84%D8%A7%D8%A8%D9%86-%D8%AD%D9%85%D8%AF%D9%88%D8%B4-pdf",
-    coverColor: "from-green-700 to-green-900",
+    cover: book3Cover,
   },
   {
     id: 4,
@@ -49,7 +57,7 @@ const books: Book[] = [
     description: "موسوعة شاملة تغطي مئات الأعشاب والنباتات الطبية مع استخداماتها العلاجية.",
     type: "external",
     url: "https://www.noor-book.com/ebook-%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%88%D8%B9%D9%87-%D8%A7%D9%84%D8%A7%D9%85-%D9%84%D9%84%D8%B9%D9%84%D8%A7%D8%AC-%D8%A8%D8%A7%D9%84%D8%A7%D8%B9%D8%B4%D8%A7%D8%A8-%D9%88%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D8%A7%D8%AA-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D9%87-pdf",
-    coverColor: "from-amber-700 to-amber-900",
+    cover: book4Cover,
   },
   {
     id: 5,
@@ -58,7 +66,7 @@ const books: Book[] = [
     description: "كتاب يتناول أهم الأعشاب والنباتات الطبية المستخدمة في الطب الشعبي والحديث.",
     type: "external",
     url: "https://www.noor-book.com/book/review/566560",
-    coverColor: "from-teal-700 to-teal-900",
+    cover: book5Cover,
   },
   {
     id: 6,
@@ -67,7 +75,7 @@ const books: Book[] = [
     description: "مرجع عالمي مترجم في طب الأعشاب يجمع بين الطب الغربي والشرقي.",
     type: "external",
     url: "https://www.noor-book.com/book/review/299488",
-    coverColor: "from-indigo-700 to-indigo-900",
+    cover: book6Cover,
   },
   {
     id: 7,
@@ -76,7 +84,7 @@ const books: Book[] = [
     description: "وصفات طبيعية عملية للعلاج بالأعشاب مع طرق التحضير.",
     type: "external",
     url: "https://www.noor-book.com/book/review/483588",
-    coverColor: "from-rose-700 to-rose-900",
+    cover: book7Cover,
   },
   {
     id: 8,
@@ -85,7 +93,7 @@ const books: Book[] = [
     description: "دليل شامل يغطي الأعشاب الطبية مع الجرعات والاستخدامات.",
     type: "external",
     url: "https://www.noor-book.com/book/review/358387",
-    coverColor: "from-purple-700 to-purple-900",
+    cover: book8Cover,
   },
 ];
 
@@ -128,8 +136,8 @@ export default function Books() {
           <div className="grid gap-4 sm:grid-cols-2">
             {books.filter(b => b.type === "local").map(book => (
               <Card key={book.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className={`h-32 bg-gradient-to-br ${book.coverColor} flex items-center justify-center`}>
-                  <BookOpen className="h-12 w-12 text-white/80" />
+                <div className="h-48 overflow-hidden">
+                  <img src={book.cover} alt={book.title} loading="lazy" width={512} height={720} className="w-full h-full object-cover" />
                 </div>
                 <CardContent className="p-4">
                   <h4 className="font-amiri text-lg font-bold text-foreground mb-1">{book.title}</h4>
@@ -156,8 +164,8 @@ export default function Books() {
           <div className="grid gap-4 sm:grid-cols-2">
             {books.filter(b => b.type === "external").map(book => (
               <Card key={book.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className={`h-24 bg-gradient-to-br ${book.coverColor} flex items-center justify-center`}>
-                  <BookOpen className="h-10 w-10 text-white/80" />
+                <div className="h-40 overflow-hidden">
+                  <img src={book.cover} alt={book.title} loading="lazy" width={512} height={720} className="w-full h-full object-cover" />
                 </div>
                 <CardContent className="p-4">
                   <h4 className="font-amiri text-lg font-bold text-foreground mb-1">{book.title}</h4>
