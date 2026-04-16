@@ -147,7 +147,7 @@ export default function Books() {
                   <h4 className="font-amiri text-lg font-bold text-foreground mb-1">{book.title}</h4>
                   <p className="text-sm text-muted-foreground mb-2">{book.author}</p>
                   <p className="text-sm text-foreground/70 mb-4 line-clamp-2">{book.description}</p>
-                  <a href={book.url} download>
+                  <a href={book.url} target="_blank" rel="noopener noreferrer" download>
                     <Button className="w-full gap-2">
                       <Download className="h-4 w-4" />
                       تحميل PDF
