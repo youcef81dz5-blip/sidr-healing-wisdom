@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { AnalysisResult } from "@/lib/gemini";
 import { AlertTriangle, CheckCircle, Shield, BookOpen, Activity, Heart, XCircle } from "lucide-react";
 
@@ -6,8 +7,10 @@ interface Props {
 }
 
 const UrgencyBadge = ({ level }: { level: string }) => {
-  const isHigh = level === "عالي";
-  const isMed = level === "متوسط";
+  const { t } = useTranslation();
+  const lower = (level || "").toLowerCase();
+  const isHigh = lower.includes("high") || lower.includes("élevé") || level === "عالي";
+  const isMed = lower.includes("medium") || lower.includes("moderate") || lower.includes("moyen") || level === "متوسط";
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-medium ${
@@ -19,7 +22,7 @@ const UrgencyBadge = ({ level }: { level: string }) => {
       }`}
     >
       {isHigh ? <AlertTriangle className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
-      مستوى الاستعجال: {level}
+      {t("results.urgency")}: {level}
     </span>
   );
 };
@@ -60,17 +63,16 @@ const ListItems = ({ items }: { items: string[] }) => (
 );
 
 export default function AnalysisResults({ result }: Props) {
+  const { t } = useTranslation();
   const { case_analysis, prophetic_medicine_integration, actionable_steps, strict_risk_assessment, medical_disclaimer } = result;
 
   return (
     <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      {/* Urgency */}
       <div className="flex justify-center">
         <UrgencyBadge level={case_analysis.urgency_level} />
       </div>
 
-      {/* Symptoms & Diagnosis */}
-      <Section icon={Activity} title="التحليل الطبي">
+      <Section icon={Activity} title={t("results.medicalAnalysis")}>
         <div className="flex flex-wrap gap-2 mb-3">
           {case_analysis.identified_symptoms.map((s, i) => (
             <span key={i} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
@@ -81,10 +83,9 @@ export default function AnalysisResults({ result }: Props) {
         <p className="text-sm leading-relaxed text-foreground/85">{case_analysis.modern_medical_perspective}</p>
       </Section>
 
-      {/* Prophetic Medicine */}
-      <Section icon={BookOpen} title="الطب النبوي" variant="success">
+      <Section icon={BookOpen} title={t("results.propheticMedicine")} variant="success">
         <p className="text-sm leading-relaxed text-foreground/85 mb-3">{prophetic_medicine_integration.relevant_prophetic_guidance}</p>
-        <div className="space-y-2 border-r-2 border-primary/30 pr-3 mb-3">
+        <div className="space-y-2 border-s-2 border-primary/30 ps-3 mb-3">
           {prophetic_medicine_integration.verified_sources_and_hadiths.map((h, i) => (
             <p key={i} className="text-sm italic text-muted-foreground">❝ {h} ❞</p>
           ))}
@@ -92,26 +93,23 @@ export default function AnalysisResults({ result }: Props) {
         <p className="text-sm text-foreground/80">{prophetic_medicine_integration.scientific_validation}</p>
       </Section>
 
-      {/* Actions */}
-      <Section icon={Heart} title="خطوات العلاج">
-        <h4 className="text-sm font-bold text-foreground mb-1">إجراءات فورية:</h4>
+      <Section icon={Heart} title={t("results.treatmentSteps")}>
+        <h4 className="text-sm font-bold text-foreground mb-1">{t("results.immediateActions")}</h4>
         <ListItems items={actionable_steps.immediate_actions} />
-        <h4 className="text-sm font-bold text-foreground mt-3 mb-1">العلاجات الطبيعية:</h4>
+        <h4 className="text-sm font-bold text-foreground mt-3 mb-1">{t("results.naturalRemedies")}</h4>
         <ListItems items={actionable_steps.prophetic_and_natural_remedies_application} />
-        <h4 className="text-sm font-bold text-destructive mt-3 mb-1">⚠ متى تراجع الطبيب؟</h4>
+        <h4 className="text-sm font-bold text-destructive mt-3 mb-1">{t("results.whenSeeDoctor")}</h4>
         <ListItems items={actionable_steps.when_to_see_a_doctor} />
       </Section>
 
-      {/* Risk Assessment */}
-      <Section icon={Shield} title="تقييم المخاطر" variant="warning">
+      <Section icon={Shield} title={t("results.riskAssessment")} variant="warning">
         <p className="text-sm leading-relaxed text-foreground/85 mb-3">{strict_risk_assessment.mismanagement_dangers}</p>
         <h4 className="text-sm font-bold text-destructive mb-1 flex items-center gap-1">
-          <XCircle className="h-4 w-4" /> موانع الاستعمال:
+          <XCircle className="h-4 w-4" /> {t("results.contraindications")}
         </h4>
         <ListItems items={strict_risk_assessment.contraindications} />
       </Section>
 
-      {/* Disclaimer */}
       <div className="rounded-lg bg-muted p-4 text-center">
         <p className="text-xs text-muted-foreground leading-relaxed">{medical_disclaimer}</p>
       </div>

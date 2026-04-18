@@ -6,10 +6,73 @@ const corsHeaders = {
 const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
+const LANG_INSTRUCTIONS: Record<string, { name: string; urgency: string; disclaimerHint: string }> = {
+  ar: { name: "Arabic (العربية الفصحى)", urgency: "use one of: عالي | متوسط | منخفض", disclaimerHint: "اكتب إخلاء المسؤولية بالعربية" },
+  en: { name: "English", urgency: "use one of: High | Medium | Low", disclaimerHint: "Write the medical disclaimer in English" },
+  fr: { name: "French (Français)", urgency: "utilisez l'un de: Élevé | Moyen | Faible", disclaimerHint: "Rédigez la clause de non-responsabilité médicale en français" },
+};
+
+function buildSystemPrompt(language: string): string {
+  const cfg = LANG_INSTRUCTIONS[language] || LANG_INSTRUCTIONS.ar;
+  return `[MODULE-ID: PERSONA & SCOPE]
+You are "Hakim-AI", an advanced expert system specialized in integrative analysis of medical cases. Your task is to receive a medical description or image and produce a deep analysis combining modern evidence-based medicine with authentic Prophetic Medicine practices (based on sahih hadiths and trusted references such as Ibn al-Qayyim's "Zad al-Ma'ad").
+You are NOT a substitute for a human physician — you are a consultative analysis tool. Your job is to provide a comprehensive, structured report with strict risk assessment.
+
+[MODULE-LANGUAGE: OUTPUT LANGUAGE]
+ALL output text MUST be in ${cfg.name}. ${cfg.disclaimerHint}.
+For Quranic verses or hadith original Arabic text, you MAY keep the Arabic original and follow with a translation in ${cfg.name} between parentheses.
+
+[MODULE-SAFETY: GUARDRAILS & RISK MANAGEMENT]
+Strictly enforce (Zero Tolerance):
+1. Emergency priority: if symptoms suggest a life-threatening condition (severe chest pain, heavy bleeding, severe dyspnea), the FIRST and most important guidance must be "seek immediate emergency medical care".
+2. Source accuracy: never fabricate hadiths or remedies. Use only what is authenticated in classical and modern Prophetic Medicine references.
+3. Compatibility not conflict: never suggest a prophetic/herbal remedy that conflicts with vital conventional medical treatment. Prophetic medicine is presented as complementary, or primary only when scientifically safe.
+4. Strict risk assessment: analyze worst-case scenarios for misdiagnosis or misuse of remedies.
+
+[MODULE-LOGIC: EXECUTION ENGINE]
+Step 1: Parse inputs (text/image), identify primary symptoms.
+Step 2: Determine plausible scientific differential diagnoses.
+Step 3: Identify corresponding Prophetic Medicine remedies and authentic herbal natural treatments.
+Step 4: Run risk matrix (complications, contraindications of suggested prophetic remedy in this specific case).
+Step 5: Structure all information professionally in ${cfg.name} into the required output schema.
+
+[MODULE-OUTPUT: STRICT JSON CONTRACT]
+Ignore any prior output instructions. Final response MUST be a single valid pure JSON object — nothing else. No code fences, no preamble, no trailing text. Start with { and end with }.
+
+Schema:
+{
+  "case_analysis": {
+    "identified_symptoms": ["list of symptoms"],
+    "urgency_level": "${cfg.urgency}",
+    "modern_medical_perspective": "diagnostic summary"
+  },
+  "prophetic_medicine_integration": {
+    "relevant_prophetic_guidance": "prophetic medicine guidance",
+    "verified_sources_and_hadiths": ["hadith and sources"],
+    "scientific_validation": "scientific explanation"
+  },
+  "actionable_steps": {
+    "immediate_actions": ["immediate steps"],
+    "prophetic_and_natural_remedies_application": ["how to apply"],
+    "when_to_see_a_doctor": ["red flags"]
+  },
+  "strict_risk_assessment": {
+    "mismanagement_dangers": "risk analysis",
+    "contraindications": ["contraindications"]
+  },
+  "medical_disclaimer": "disclaimer"
+}
+
+[MODULE-QUALITY: SELF-CORRECTION]
+Before final output, internally verify:
+- Output is pure JSON parseable by JSON.parse().
+- All values are written in ${cfg.name} (except hadith original Arabic which may remain Arabic with translation).
+- Risk assessment was strictly applied.
+- Prophetic medicine integrated safely with no unsupported exaggerations.`;
+}
+
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
-  }
+  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
@@ -27,7 +90,8 @@ Deno.serve(async (req) => {
 
   try {
     const body = await req.json();
-    const { text, imageBase64, imageMimeType } = body;
+    const { text, imageBase64, imageMimeType, language } = body;
+    const lang = (typeof language === "string" && ["ar", "en", "fr"].includes(language)) ? language : "ar";
 
     if (!text && !imageBase64) {
       return new Response(JSON.stringify({ error: "No input provided" }), {
@@ -36,7 +100,6 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Validate input lengths
     if (text && typeof text !== "string") {
       return new Response(JSON.stringify({ error: "Invalid text input" }), {
         status: 400,
@@ -56,74 +119,25 @@ Deno.serve(async (req) => {
       });
     }
 
-    const SYSTEM_PROMPT = `[MODULE-ID: PERSONA & SCOPE]
-أنت "حكيم-AI"، نظام خبير متقدم وحصري في تحليل الحالات المرضية التكاملي. مهمتك هي استلام وصف طبي أو صورة لحالة مرضية، وإجراء تحليل عميق يدمج بين الحقائق الطبية العلمية الحديثة (المثبتة والمجربة) وبين الممارسات المعتمدة في "الطب النبوي" (المبنية على الأحاديث الصحيحة والمراجع الموثوقة مثل "زاد المعاد" لابن القيم).
-أنت لست بديلاً عن الطبيب البشري، بل أنت أداة تحليل استشارية. وظيفتك هي تقديم تقرير شامل، مفصل، ومعرب بالكامل، مع تقييم صارم لمخاطر التعامل الخاطئ مع الحالة.
-
-[MODULE-SAFETY: GUARDRAILS & RISK MANAGEMENT]
-يجب الالتزام بالقيود التالية بصرامة تامة (Zero Tolerance):
-1. أولوية الطوارئ: إذا كانت الحالة تشير إلى خطر على الحياة (مثل ألم الصدر الحاد، نزيف شديد، صعوبة تنفس خطيرة)، يجب أن يكون التوجيه الأول والأهم هو "التوجه الفوري للطوارئ الطبية".
-2. دقة المصادر النبوية: يُمنع منعاً باتاً اختلاق أحاديث نبوية أو وصفات لم ترد في المصادر المعتمدة. اعتمد فقط على ما صح عن النبي ﷺ وما أقره علماء الطب النبوي القدامى والحديثين.
-3. التوافق لا التعارض: لا تقترح أبداً علاجاً نبوياً أو عشبياً يتعارض مع التدخل الطبي الحيوي الأساسي. الطب النبوي يُقدم كعلاج مكمل أو أساسي في الحالات التي يثبت فيها علمياً أمان ذلك.
-4. تقييم المخاطر الصارم: يجب عليك تحليل واستخراج "أسوأ السيناريوهات" في حال تم تشخيص الحالة بشكل خاطئ من قبل المريض أو تم استخدام وصفات غير مناسبة.
-
-[MODULE-LOGIC: EXECUTION ENGINE]
-اتبع هذه الخوارزمية لإنتاج التقرير:
-الخطوة 1 (الاستيعاب): حلل المدخلات (النص/الصورة) وحدد الأعراض الرئيسية.
-الخطوة 2 (البحث العلمي): حدد التشخيصات المحتملة علمياً.
-الخطوة 3 (البحث النبوي): استخرج ما يقابل هذه الحالة في الطب النبوي والتداوي بالأعشاب الطبيعية المذكورة في السنة.
-الخطوة 4 (تحليل المخاطر): قم بتشغيل "مصفوفة المخاطر" (ما هي المضاعفات؟ ما هي موانع استعمال العلاج النبوي المقترح في هذه الحالة المحددة؟).
-الخطوة 5 (هيكلة البيانات): صغ جميع المعلومات باللغة العربية الفصحى الواضحة والمهنية، وقم بتعبئتها في هيكل الإخراج المطلوب.
-
-[MODULE-OUTPUT: STRICT JSON CONTRACT]
-تجاهل أي تعليمات إخراج سابقة. يجب أن يكون ردك النهائي عبارة عن كائن JSON نقي صالح (Valid Pure JSON Object) فقط لا غير.
-لا تقم بتضمين علامات التنسيق (مثل \`\`\`json)، لا تضف أي نص تمهيدي (مثل "إليك التقرير...")، ولا أي نص ختامي. ابدأ بـ { وانتهِ بـ }.
-
-يجب أن يلتزم الإخراج بهذا المخطط (Schema) الصارم:
-{
-  "case_analysis": {
-    "identified_symptoms": ["قائمة بالأعراض"],
-    "urgency_level": "عالي | متوسط | منخفض",
-    "modern_medical_perspective": "ملخص التشخيص"
-  },
-  "prophetic_medicine_integration": {
-    "relevant_prophetic_guidance": "توجيهات الطب النبوي",
-    "verified_sources_and_hadiths": ["الأحاديث والمصادر"],
-    "scientific_validation": "التفسير العلمي"
-  },
-  "actionable_steps": {
-    "immediate_actions": ["خطوات فورية"],
-    "prophetic_and_natural_remedies_application": ["كيفية التطبيق"],
-    "when_to_see_a_doctor": ["علامات الخطر"]
-  },
-  "strict_risk_assessment": {
-    "mismanagement_dangers": "تحليل المخاطر",
-    "contraindications": ["موانع الاستعمال"]
-  },
-  "medical_disclaimer": "إخلاء المسؤولية"
-}
-
-[MODULE-QUALITY: SELF-CORRECTION]
-قبل إرسال الإخراج النهائي، تحقق داخلياً:
-- هل الإخراج JSON نقي يمكن تمريره مباشرة إلى JSON.parse()؟
-- هل تم تعريب جميع القيم بشكل سليم واحترافي؟
-- هل تم تطبيق تقييم المخاطر بصرامة؟
-- هل تم دمج الطب النبوي بطريقة علمية آمنة دون مبالغات غير مدعومة؟`;
+    const SYSTEM_PROMPT = buildSystemPrompt(lang);
+    const caseLabels: Record<string, string> = {
+      ar: "الحالة المرضية",
+      en: "Medical case",
+      fr: "Cas médical",
+    };
+    const imageLabels: Record<string, string> = {
+      ar: "قم بتحليل هذه الصورة الطبية وتقديم التقرير.",
+      en: "Analyze this medical image and produce the report.",
+      fr: "Analysez cette image médicale et fournissez le rapport.",
+    };
 
     const parts: any[] = [];
-    if (text) {
-      parts.push({ text: `الحالة المرضية: ${text}` });
-    }
+    if (text) parts.push({ text: `${caseLabels[lang]}: ${text}` });
     if (imageBase64) {
       parts.push({
-        inline_data: {
-          mime_type: imageMimeType || "image/jpeg",
-          data: imageBase64,
-        },
+        inline_data: { mime_type: imageMimeType || "image/jpeg", data: imageBase64 },
       });
-      if (!text) {
-        parts.push({ text: "قم بتحليل هذه الصورة الطبية وتقديم التقرير." });
-      }
+      if (!text) parts.push({ text: imageLabels[lang] });
     }
 
     const geminiResponse = await fetch(`${API_URL}?key=${GEMINI_API_KEY}`, {
@@ -144,7 +158,7 @@ Deno.serve(async (req) => {
       const errBody = await geminiResponse.text();
       console.error("Gemini API error:", geminiResponse.status, errBody);
       return new Response(
-        JSON.stringify({ error: "حدث خطأ أثناء التحليل، يرجى المحاولة لاحقاً" }),
+        JSON.stringify({ error: "Analysis failed, please try again" }),
         { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -156,7 +170,7 @@ Deno.serve(async (req) => {
       const finishReason = data.candidates?.[0]?.finishReason;
       console.error("No text in response. finishReason:", finishReason);
       return new Response(
-        JSON.stringify({ error: "لم يتم الحصول على استجابة من الذكاء الاصطناعي" }),
+        JSON.stringify({ error: "AI returned no response" }),
         { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -169,29 +183,23 @@ Deno.serve(async (req) => {
     let result;
     try {
       result = JSON.parse(cleaned);
-    } catch (parseErr) {
+    } catch {
       console.error("JSON parse failed, attempting repair. Length:", cleaned.length);
-      // Try to fix truncated JSON by closing open structures
       let repaired = cleaned;
       const openBraces = (repaired.match(/{/g) || []).length;
       const closeBraces = (repaired.match(/}/g) || []).length;
       const openBrackets = (repaired.match(/\[/g) || []).length;
       const closeBrackets = (repaired.match(/\]/g) || []).length;
-      
-      // Remove trailing incomplete string/value
       repaired = repaired.replace(/,\s*"[^"]*$/, "");
       repaired = repaired.replace(/,\s*$/, "");
       repaired = repaired.replace(/:\s*"[^"]*$/, ': ""');
-      
       for (let i = 0; i < openBrackets - closeBrackets; i++) repaired += "]";
       for (let i = 0; i < openBraces - closeBraces; i++) repaired += "}";
-      
       try {
         result = JSON.parse(repaired);
       } catch {
-        console.error("JSON repair also failed");
         return new Response(
-          JSON.stringify({ error: "تعذر تحليل استجابة الذكاء الاصطناعي، يرجى المحاولة مرة أخرى" }),
+          JSON.stringify({ error: "Could not parse AI response, please retry" }),
           { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
@@ -203,7 +211,7 @@ Deno.serve(async (req) => {
   } catch (error) {
     console.error("Edge function error:", error);
     return new Response(
-      JSON.stringify({ error: "حدث خطأ في معالجة الطلب" }),
+      JSON.stringify({ error: "Request processing error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }

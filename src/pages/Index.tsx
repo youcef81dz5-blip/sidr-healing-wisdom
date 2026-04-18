@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import sidrLogo from "@/assets/logo.png";
-import { Camera, Upload, Send, Loader2, Leaf, X, BookOpen, HelpCircle, Shield, Info, Heart, Menu } from "lucide-react";
+import { Camera, Send, Loader2, Leaf, X, BookOpen, HelpCircle, Shield, Info, Heart, Menu, Library } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { analyzeCondition, AnalysisResult } from "@/lib/gemini";
@@ -9,17 +10,31 @@ import WelcomeScreen from "@/components/WelcomeScreen";
 import FollowUpQuestions, { PatientContext } from "@/components/FollowUpQuestions";
 import EmergencyAlert from "@/components/EmergencyAlert";
 import ShareResults from "@/components/ShareResults";
+import { ThemeToggle, LanguageToggle } from "@/components/SettingsToggles";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
-import { commonConditions } from "@/data/commonConditions";
+import { getConditions } from "@/lib/content";
 
-const EMERGENCY_KEYWORDS = [
-  "ألم صدر", "ألم في الصدر", "ضيق تنفس", "صعوبة تنفس", "نزيف شديد",
-  "فقدان وعي", "تشنجات", "إغماء", "سكتة", "جلطة", "لا أستطيع التنفس",
-  "نزيف لا يتوقف", "ألم شديد في الصدر",
-];
+const EMERGENCY_KEYWORDS_BY_LANG: Record<string, string[]> = {
+  ar: [
+    "ألم صدر", "ألم في الصدر", "ضيق تنفس", "صعوبة تنفس", "نزيف شديد",
+    "فقدان وعي", "تشنجات", "إغماء", "سكتة", "جلطة", "لا أستطيع التنفس",
+    "نزيف لا يتوقف", "ألم شديد في الصدر",
+  ],
+  en: [
+    "chest pain", "severe chest", "shortness of breath", "can't breathe", "cannot breathe",
+    "heavy bleeding", "uncontrolled bleeding", "loss of consciousness", "unconscious",
+    "seizure", "stroke", "heart attack",
+  ],
+  fr: [
+    "douleur thoracique", "douleur à la poitrine", "essoufflement", "je ne peux pas respirer",
+    "saignement abondant", "perte de conscience", "convulsions", "évanouissement", "AVC", "crise cardiaque",
+  ],
+};
 
 export default function Index() {
+  const { t, i18n } = useTranslation();
+  const lang = (i18n.language || "ar").split("-")[0];
   const [accepted, setAccepted] = useState(() => localStorage.getItem("sidr_accepted") === "true");
   const [text, setText] = useState("");
   const [image, setImage] = useState<File | null>(null);
@@ -55,13 +70,14 @@ export default function Index() {
   };
 
   const checkEmergency = (inputText: string): boolean => {
-    const lower = inputText.trim();
-    return EMERGENCY_KEYWORDS.some((kw) => lower.includes(kw));
+    const lower = inputText.trim().toLowerCase();
+    const keywords = EMERGENCY_KEYWORDS_BY_LANG[lang] || EMERGENCY_KEYWORDS_BY_LANG.ar;
+    return keywords.some((kw) => lower.includes(kw.toLowerCase()));
   };
 
   const handleSubmit = () => {
     if (!text.trim() && !image) {
-      toast({ title: "يرجى وصف الأعراض أو إرفاق صورة", variant: "destructive" });
+      toast({ title: t("home.needSymptoms"), variant: "destructive" });
       return;
     }
     if (text.trim() && checkEmergency(text)) {
@@ -79,26 +95,32 @@ export default function Index() {
     let enrichedText = text;
     if (patientContext) {
       const parts: string[] = [];
-      if (patientContext.gender) parts.push(`الجنس: ${patientContext.gender}`);
-      if (patientContext.ageGroup) parts.push(`العمر: ${patientContext.ageGroup}`);
-      if (patientContext.painLocation) parts.push(`موقع الألم: ${patientContext.painLocation}`);
-      if (patientContext.duration) parts.push(`المدة: ${patientContext.duration}`);
-      if (patientContext.severity) parts.push(`الشدة: ${patientContext.severity}`);
-      if (patientContext.chronicDiseases.length > 0 && !patientContext.chronicDiseases.includes("لا يوجد"))
-        parts.push(`أمراض مزمنة: ${patientContext.chronicDiseases.join("، ")}`);
-      if (patientContext.currentMedications) parts.push(`أدوية حالية: ${patientContext.currentMedications}`);
-      if (patientContext.isPregnant) parts.push("حامل أو مرضع");
+      const labelMap: Record<string, Record<string, string>> = {
+        ar: { gender: "الجنس", age: "العمر", loc: "موقع الألم", duration: "المدة", severity: "الشدة", chronic: "أمراض مزمنة", meds: "أدوية حالية", pregnant: "حامل أو مرضع", header: "معلومات إضافية عن المريض" },
+        en: { gender: "Gender", age: "Age", loc: "Pain location", duration: "Duration", severity: "Severity", chronic: "Chronic diseases", meds: "Current medications", pregnant: "Pregnant or breastfeeding", header: "Additional patient info" },
+        fr: { gender: "Sexe", age: "Âge", loc: "Localisation de la douleur", duration: "Durée", severity: "Sévérité", chronic: "Maladies chroniques", meds: "Médicaments actuels", pregnant: "Enceinte ou allaitante", header: "Informations supplémentaires sur le patient" },
+      };
+      const L = labelMap[lang] || labelMap.ar;
+      if (patientContext.gender) parts.push(`${L.gender}: ${patientContext.gender}`);
+      if (patientContext.ageGroup) parts.push(`${L.age}: ${patientContext.ageGroup}`);
+      if (patientContext.painLocation) parts.push(`${L.loc}: ${patientContext.painLocation}`);
+      if (patientContext.duration) parts.push(`${L.duration}: ${patientContext.duration}`);
+      if (patientContext.severity) parts.push(`${L.severity}: ${patientContext.severity}`);
+      if (patientContext.chronicDiseases.length > 0)
+        parts.push(`${L.chronic}: ${patientContext.chronicDiseases.join(", ")}`);
+      if (patientContext.currentMedications) parts.push(`${L.meds}: ${patientContext.currentMedications}`);
+      if (patientContext.isPregnant) parts.push(L.pregnant);
 
       if (parts.length > 0) {
-        enrichedText = `${text}\n\n--- معلومات إضافية عن المريض ---\n${parts.join("\n")}`;
+        enrichedText = `${text}\n\n--- ${L.header} ---\n${parts.join("\n")}`;
       }
     }
 
     try {
-      const res = await analyzeCondition(enrichedText, image);
+      const res = await analyzeCondition(enrichedText, image, lang);
       setResult(res);
     } catch (err: any) {
-      toast({ title: "حدث خطأ", description: err.message, variant: "destructive" });
+      toast({ title: t("common.error"), description: err.message, variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -113,17 +135,18 @@ export default function Index() {
   };
 
   const menuItems = [
-    { icon: BookOpen, label: "موسوعة الأعشاب", path: "/herbs" },
-    { icon: BookOpen, label: "مكتبة الكتب", path: "/books" },
-    { icon: Heart, label: "حالات شائعة", path: "/conditions" },
-    { icon: HelpCircle, label: "أسئلة شائعة", path: "/faq" },
-    { icon: Info, label: "من نحن", path: "/about" },
-    { icon: Shield, label: "سياسة الخصوصية", path: "/privacy" },
+    { icon: BookOpen, label: t("nav.herbs"), path: "/herbs" },
+    { icon: Library, label: t("nav.books"), path: "/books" },
+    { icon: Heart, label: t("nav.conditions"), path: "/conditions" },
+    { icon: HelpCircle, label: t("nav.faq"), path: "/faq" },
+    { icon: Info, label: t("nav.about"), path: "/about" },
+    { icon: Shield, label: t("nav.privacy"), path: "/privacy" },
   ];
+
+  const conditions = getConditions();
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Emergency overlay */}
       {showEmergency && (
         <EmergencyAlert onDismiss={() => {
           setShowEmergency(false);
@@ -131,57 +154,58 @@ export default function Index() {
         }} />
       )}
 
-      {/* Header */}
       <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-lg items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <img src={sidrLogo} alt="سِدر" className="h-8 w-8 rounded-lg object-contain" />
-            <h1 className="font-heading text-2xl font-bold text-gradient-primary">سِدر</h1>
+            <img src={sidrLogo} alt={t("app.name")} className="h-8 w-8 rounded-lg object-contain" />
+            <h1 className="font-heading text-2xl font-bold text-gradient-primary">{t("app.name")}</h1>
           </div>
-          <div className="relative">
-            <Button variant="ghost" size="icon" onClick={() => setShowMenu(!showMenu)}>
-              <Menu className="h-5 w-5" />
-            </Button>
-            {showMenu && (
-              <>
-                <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)} />
-                <div className="absolute left-0 top-full mt-1 z-50 w-48 card-elevated p-1 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {menuItems.map((item) => (
-                    <button
-                      key={item.path}
-                      className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-foreground rounded-md hover:bg-muted transition-colors"
-                      onClick={() => { setShowMenu(false); navigate(item.path); }}
-                    >
-                      <item.icon className="h-4 w-4 text-primary" />
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
+          <div className="flex items-center gap-1">
+            <LanguageToggle />
+            <ThemeToggle />
+            <div className="relative">
+              <Button variant="ghost" size="icon" onClick={() => setShowMenu(!showMenu)}>
+                <Menu className="h-5 w-5" />
+              </Button>
+              {showMenu && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)} />
+                  <div className="absolute end-0 top-full mt-1 z-50 w-52 card-elevated p-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                    {menuItems.map((item) => (
+                      <button
+                        key={item.path}
+                        className="w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-foreground rounded-md hover:bg-muted transition-colors text-start"
+                        onClick={() => { setShowMenu(false); navigate(item.path); }}
+                      >
+                        <item.icon className="h-4 w-4 text-primary" />
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </header>
 
       <main className="mx-auto max-w-lg px-4 py-6 pb-32 space-y-6">
-        {/* Hero - only show when no result/loading/followup */}
         {!result && !loading && !showFollowUp && (
           <>
             <div className="text-center space-y-2 py-4">
               <div className="mx-auto h-24 w-24 glow-primary">
-                <img src={sidrLogo} alt="سِدر" className="h-full w-full object-contain" />
+                <img src={sidrLogo} alt={t("app.name")} className="h-full w-full object-contain" />
               </div>
-              <h2 className="font-heading text-xl font-bold text-foreground">حكيمك الطبيعي</h2>
+              <h2 className="font-heading text-xl font-bold text-foreground">{t("home.heroTitle")}</h2>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">
-                صِف أعراضك أو أرفق صورة، وسنقدم لك تحليلاً طبياً متكاملاً يجمع بين الطب الحديث والطب النبوي
+                {t("home.heroSubtitle")}
               </p>
             </div>
 
-            {/* Quick Access - Common Conditions */}
             <div className="space-y-2">
-              <h3 className="font-heading text-sm font-bold text-foreground">حالات شائعة</h3>
+              <h3 className="font-heading text-sm font-bold text-foreground">{t("home.commonConditions")}</h3>
               <div className="grid grid-cols-3 gap-2">
-                {commonConditions.slice(0, 6).map((c) => (
+                {conditions.slice(0, 6).map((c) => (
                   <button
                     key={c.id}
                     className="card-elevated p-3 text-center hover:border-primary/30 transition-colors"
@@ -194,28 +218,28 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div className="grid grid-cols-2 gap-2">
-              <button className="card-elevated p-3 flex items-center gap-2 hover:border-primary/30 transition-colors" onClick={() => navigate("/herbs")}>
+            {/* Quick Links — herbs, books, faq */}
+            <div className="grid grid-cols-3 gap-2">
+              <button className="card-elevated p-3 flex flex-col items-center gap-1.5 hover:border-primary/30 transition-colors" onClick={() => navigate("/herbs")}>
                 <BookOpen className="h-5 w-5 text-primary" />
-                <span className="text-xs font-medium">موسوعة الأعشاب</span>
+                <span className="text-[11px] font-medium text-center leading-tight">{t("nav.herbs")}</span>
               </button>
-              <button className="card-elevated p-3 flex items-center gap-2 hover:border-primary/30 transition-colors" onClick={() => navigate("/faq")}>
+              <button className="card-elevated p-3 flex flex-col items-center gap-1.5 hover:border-primary/30 transition-colors" onClick={() => navigate("/books")}>
+                <Library className="h-5 w-5 text-primary" />
+                <span className="text-[11px] font-medium text-center leading-tight">{t("nav.books")}</span>
+              </button>
+              <button className="card-elevated p-3 flex flex-col items-center gap-1.5 hover:border-primary/30 transition-colors" onClick={() => navigate("/faq")}>
                 <HelpCircle className="h-5 w-5 text-primary" />
-                <span className="text-xs font-medium">أسئلة شائعة</span>
+                <span className="text-[11px] font-medium text-center leading-tight">{t("nav.faq")}</span>
               </button>
             </div>
 
-            {/* Image upload notice */}
             <div className="rounded-lg bg-muted/50 p-3 text-center">
-              <p className="text-[10px] text-muted-foreground leading-relaxed">
-                📸 تحليل الصور يركز على الحالات الجلدية السطحية (طفح، بقع، حب شباب، فطريات). النتيجة تقريبية وليست تشخيصًا.
-              </p>
+              <p className="text-[10px] text-muted-foreground leading-relaxed">{t("home.imageNotice")}</p>
             </div>
           </>
         )}
 
-        {/* Follow-up Questions */}
         {showFollowUp && (
           <FollowUpQuestions
             onComplete={(ctx) => runAnalysis(ctx)}
@@ -223,7 +247,6 @@ export default function Index() {
           />
         )}
 
-        {/* Results */}
         {result && (
           <>
             <AnalysisResults result={result} />
@@ -231,33 +254,31 @@ export default function Index() {
             <div className="text-center">
               <Button variant="outline" onClick={resetAll} className="gap-2">
                 <Leaf className="h-4 w-4" />
-                تحليل جديد
+                {t("home.newAnalysis")}
               </Button>
             </div>
           </>
         )}
 
-        {/* Loading */}
         {loading && (
           <div className="flex flex-col items-center justify-center py-16 gap-4">
             <div className="relative">
               <div className="h-16 w-16 rounded-full bg-primary/10 animate-pulse" />
               <Loader2 className="absolute inset-0 m-auto h-8 w-8 text-primary animate-spin" />
             </div>
-            <p className="text-sm text-muted-foreground animate-pulse">جارٍ التحليل الشامل...</p>
-            <p className="text-[10px] text-muted-foreground">يتم الجمع بين الطب الحديث والطب النبوي</p>
+            <p className="text-sm text-muted-foreground animate-pulse">{t("home.analyzing")}</p>
+            <p className="text-[10px] text-muted-foreground">{t("home.analyzingSub")}</p>
           </div>
         )}
       </main>
 
-      {/* Input Bar - hide during follow-up */}
       {!showFollowUp && (
         <div className="fixed bottom-0 inset-x-0 border-t bg-background/95 backdrop-blur-md">
           <div className="mx-auto max-w-lg px-4 py-3 space-y-2">
             {imagePreview && (
               <div className="relative inline-block">
-                <img src={imagePreview} alt="معاينة" className="h-16 w-16 rounded-lg object-cover border" />
-                <button onClick={removeImage} className="absolute -top-1.5 -left-1.5 rounded-full bg-destructive p-0.5">
+                <img src={imagePreview} alt="preview" className="h-16 w-16 rounded-lg object-cover border" />
+                <button onClick={removeImage} className="absolute -top-1.5 -end-1.5 rounded-full bg-destructive p-0.5">
                   <X className="h-3 w-3 text-destructive-foreground" />
                 </button>
               </div>
@@ -266,7 +287,7 @@ export default function Index() {
               <Textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="صِف الأعراض أو المرض..."
+                placeholder={t("home.inputPlaceholder")}
                 className="min-h-[44px] max-h-[120px] resize-none bg-muted/50 border-0 text-sm font-body"
                 rows={1}
                 onKeyDown={(e) => {

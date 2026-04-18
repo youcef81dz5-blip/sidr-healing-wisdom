@@ -1,0 +1,151 @@
+{
+  "ibs": {
+    "id": "ibs",
+    "name": "Syndrome du côlon irritable (SCI)",
+    "emoji": "🫄",
+    "bodySystem": "Système digestif",
+    "description": "Un trouble fonctionnel intestinal courant qui provoque des douleurs, des ballonnements et un changement dans les habitudes d'élimination.",
+    "dietaryTips": [
+      "Éviter les aliments qui causent des gaz (légumineuses, oignons, ail cru)",
+      "Augmenter les fibres solubles (avoine, graines de lin)",
+      "Manger des repas petits et réguliers",
+      "Boire suffisamment d'eau",
+      "Éviter les aliments épicés et frits"
+    ],
+    "herbalSuggestions": [
+      "Talbina (farine d'orge) — apaisant pour le système digestif",
+      "Camomille — antispasmodique et anti-inflammatoire",
+      "Menthe — soulage les douleurs abdominales et les ballonnements",
+      "Gingembre — améliore la digestion"
+    ],
+    "lifestyleTips": [
+      "Faire de l'exercice régulièrement (30 minutes par jour)",
+      "Techniques de relaxation et de respiration profonde",
+      "Dormir suffisamment (7-8 heures)",
+      "Éviter le stress et la pression psychologique"
+    ]
+  },
+  "migraine": {
+    "id": "migraine",
+    "name": "Migraine",
+    "emoji": "🤕",
+    "bodySystem": "Tête",
+    "description": "Un mal de tête sévère et récurrent, souvent unilatéral, pouvant être accompagné de nausées et de sensibilité à la lumière.",
+    "dietaryTips": [
+      "Éviter les déclencheurs : chocolat, fromages affinés, excès de caféine",
+      "Maintenir des horaires de repas réguliers",
+      "Boire beaucoup d'eau pour éviter la déshydratation"
+    ],
+    "herbalSuggestions": [
+      "Hijama (cupping) — l'une des pratiques sunnites les plus efficaces pour les maux de tête",
+      "Huile d'olive — à appliquer sur le front et les tempes",
+      "Nigelle (cumin noir) — anti-inflammatoire",
+      "Menthe (topique) — soulage la tension"
+    ],
+    "lifestyleTips": [
+      "Sommeil régulier et suffisant",
+      "Éviter les écrans pendant de longues périodes",
+      "Pratiquer des exercices de relaxation",
+      "Éviter l'exposition soudaine à la chaleur ou au froid"
+    ]
+  },
+  "diabetes": {
+    "id": "diabetes",
+    "name": "Diabète (type 2)",
+    "emoji": "🩸",
+    "bodySystem": "Glandes",
+    "description": "Un trouble chronique de la régulation de la glycémie. Nécessite une gestion continue en collaboration avec un médecin.",
+    "dietaryTips": [
+      "Réduire les sucres et les glucides raffinés",
+      "Augmenter les légumes et les fibres",
+      "Manger des protéines à chaque repas",
+      "Éviter les jus en conserve et les boissons gazeuses"
+    ],
+    "herbalSuggestions": [
+      "Nigelle (cumin noir) — des études ont montré son efficacité dans la régulation du sucre",
+      "Fenugrec — abaisse la glycémie (avec prudence et en consultation avec le médecin)",
+      "Cannelle — peut améliorer la sensibilité à l'insuline",
+      "⚠ Avertissement : N'arrêtez pas vos médicaments et consultez votre médecin"
+    ],
+    "lifestyleTips": [
+      "Marcher 30 minutes par jour au moins",
+      "Surveiller régulièrement la glycémie",
+      "Examiner les pieds quotidiennement",
+      "Respecter les horaires de prise des médicaments"
+    ]
+  },
+  "hair-loss": {
+    "id": "hair-loss",
+    "name": "Perte de cheveux",
+    "emoji": "💇",
+    "bodySystem": "Peau",
+    "description": "Perte de cheveux anormale pouvant être due à une carence en fer, en vitamine D, à des problèmes hormonaux ou au stress.",
+    "dietaryTips": [
+      "Augmenter les protéines (œufs, poisson, viandes)",
+      "Aliments riches en fer (épinards, lentilles, dattes)",
+      "Vitamine D (exposition au soleil 15 minutes par jour)",
+      "Zinc et biotine (noix, graines)"
+    ],
+    "herbalSuggestions": [
+      "Feuilles de Sidr — pour renforcer le cuir chevelu et les cheveux",
+      "Huile d'olive — pour hydrater et nourrir les cheveux",
+      "Henné — renforce les cheveux et traite le cuir chevelu",
+      "Huile de nigelle — anti-inflammatoire"
+    ],
+    "lifestyleTips": [
+      "Vérifier le fer, la vitamine D et la thyroïde",
+      "Réduire le stress et la pression psychologique",
+      "Éviter la chaleur excessive sur les cheveux",
+      "Utiliser un shampoing doux"
+    ]
+  },
+  "vitamin-d": {
+    "id": "vitamin-d",
+    "name": "Carence en vitamine D",
+    "emoji": "☀️",
+    "bodySystem": "Os",
+    "description": "Très courante dans la région arabe malgré le soleil. Provoque des douleurs osseuses, de la fatigue et une immunité affaiblie.",
+    "dietaryTips": [
+      "Poissons gras (saumon, thon, maquereau)",
+      "Jaune d'œuf",
+      "Lait enrichi",
+      "Suppléments selon les directives du médecin"
+    ],
+    "herbalSuggestions": [
+      "Huile de foie de morue — source naturelle de vitamine D",
+      "Dattes — riches en minéraux de soutien",
+      "Miel — soutient l'immunité"
+    ],
+    "lifestyleTips": [
+      "Exposition directe au soleil 15-20 minutes par jour",
+      "Meilleur moment : tôt le matin ou avant le coucher du soleil",
+      "Faire de l'exercice en plein air",
+      "Vérifier le niveau de vitamine D tous les 6 mois"
+    ]
+  },
+  "hemorrhoids": {
+    "id": "hemorrhoids",
+    "name": "Hémorroïdes",
+    "emoji": "🩹",
+    "bodySystem": "Système digestif",
+    "description": "Gonflement des veines du rectum et de l'anus. Communes et inconfortables, mais généralement traitables.",
+    "dietaryTips": [
+      "Augmenter les fibres (fruits, légumes, céréales complètes)",
+      "Boire au moins 8 verres d'eau par jour",
+      "Éviter les aliments épicés",
+      "Consommer des figues et des prunes séchées"
+    ],
+    "herbalSuggestions": [
+      "Miel — topique comme apaisant et anti-inflammatoire",
+      "Huile d'olive — laxatif naturel et hydratant",
+      "Hijama (cupping) — peut être utile dans certains cas",
+      "Gel d'Aloe vera — apaisant topique"
+    ],
+    "lifestyleTips": [
+      "Éviter de rester assis longtemps (faire des pauses)",
+      "Ne pas forcer pendant les selles",
+      "Faire de la marche quotidienne",
+      "Bain de siège chaud (Sitz bath) pendant 15 minutes"
+    ]
+  }
+}

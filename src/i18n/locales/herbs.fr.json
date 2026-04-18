@@ -1,0 +1,577 @@
+{
+  "black-seed": {
+    "id": "black-seed",
+    "nameAr": "الحبة السوداء (حبة البركة)",
+    "nameLatin": "Nigella sativa",
+    "nameEn": "Black Seed",
+    "category": "prophetic",
+    "usedPart": "Les graines et l'huile qui en est extraite",
+    "preparation": "Elle est moulue et prise avec du miel, ou son huile est utilisée. Elle peut être consommée comme boisson chaude.",
+    "dosage": "Une petite cuillère de graines moulues par jour, ou 1 à 2 ml d'huile.",
+    "benefits": [
+      "Renforce l'immunité",
+      "Anti-inflammatoire",
+      "Régule la glycémie",
+      "Abaisse la tension artérielle élevée",
+      "Antioxydant",
+      "Soutient la santé du système respiratoire"
+    ],
+    "contraindications": [
+      "Femmes enceintes (peut provoquer des contractions utérines)",
+      "Personnes sous anticoagulants",
+      "Deux semaines avant une intervention chirurgicale",
+      "Patients souffrant d'hypotension artérielle"
+    ],
+    "drugInteractions": [
+      "Médicaments anticoagulants (warfarine)",
+      "Médicaments contre le diabète (peut augmenter la baisse de sucre)",
+      "Médicaments contre l'hypertension artérielle"
+    ],
+    "hadith": "عليكم بهذه الحبة السوداء، فإن فيها شفاءً من كل داءٍ إلا السَّام",
+    "hadithSource": "Rapporté par Al-Bukhari et Muslim",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Système immunitaire",
+      "Système respiratoire",
+      "Système digestif"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Adultes"
+    ],
+    "imageEmoji": "⚫"
+  },
+  "honey": {
+    "id": "honey",
+    "nameAr": "العسل",
+    "nameLatin": "Mel (Apis mellifera)",
+    "nameEn": "Honey",
+    "category": "prophetic",
+    "usedPart": "Miel naturel non chauffé",
+    "preparation": "À prendre à jeun avec de l'eau tiède, ou à appliquer localement sur les plaies.",
+    "dosage": "Une à deux grandes cuillères par jour",
+    "benefits": [
+      "Cicatrisation des plaies et brûlures",
+      "Antibactérien naturel",
+      "Apaise la toux et les maux de gorge",
+      "Soutient la santé du système digestif",
+      "Renforce l'immunité",
+      "Source d'énergie naturelle"
+    ],
+    "contraindications": [
+      "Enfants de moins d'un an (risque de botulisme)",
+      "Diabétiques (en grandes quantités)"
+    ],
+    "drugInteractions": [
+      "Médicaments contre le diabète (augmente le sucre)"
+    ],
+    "hadith": "الشفاء في ثلاثة: في شَرطة محجم، أو شربة عسل، أو كيّة بنار، وأنا أنهى أمتي عن الكي",
+    "hadithSource": "Rapporté par Al-Bukhari",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Système digestif",
+      "Système immunitaire",
+      "Peau"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes"
+    ],
+    "imageEmoji": "🍯"
+  },
+  "hijama": {
+    "id": "hijama",
+    "nameAr": "الحجامة",
+    "nameLatin": "Cupping Therapy",
+    "nameEn": "Hijama (Cupping)",
+    "category": "prophetic",
+    "usedPart": "Application sur des points spécifiques du corps",
+    "preparation": "Réalisée uniquement par un spécialiste formé. Effectuée les 17ème, 19ème et 21ème jours du mois lunaire (recommandé).",
+    "dosage": "Une séance toutes les 4-6 semaines selon le cas",
+    "benefits": [
+      "Soulage les maux de tête chroniques",
+      "Améliore la circulation sanguine",
+      "Soulage les douleurs dorsales et cervicales",
+      "Soutient l'immunité",
+      "Détoxifie"
+    ],
+    "contraindications": [
+      "Personnes souffrant de troubles de la coagulation ou sous anticoagulants",
+      "Femmes enceintes",
+      "Patients souffrant d'anémie sévère",
+      "Personnes atteintes de maladies cutanées contagieuses",
+      "Jeunes enfants"
+    ],
+    "drugInteractions": [
+      "Anticoagulants (risque de saignement)",
+      "Immunosuppresseurs"
+    ],
+    "hadith": "إن أمثل ما تداويتم به الحجامة",
+    "hadithSource": "Rapporté par Al-Bukhari et Muslim",
+    "scientificEvidence": "moderate",
+    "bodySystem": [
+      "Circulation sanguine",
+      "Muscles et articulations",
+      "Système immunitaire"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Adultes"
+    ],
+    "imageEmoji": "🩸"
+  },
+  "senna": {
+    "id": "senna",
+    "nameAr": "السَّنا (السنامكي)",
+    "nameLatin": "Senna alexandrina",
+    "nameEn": "Senna",
+    "category": "prophetic",
+    "usedPart": "Feuilles séchées",
+    "preparation": "Faire tremper les feuilles dans de l'eau chaude pendant 10 minutes, puis filtrer et boire.",
+    "dosage": "Une tasse au besoin, ne pas utiliser pendant plus d'une semaine consécutive.",
+    "benefits": [
+      "Traitement de la constipation aiguë",
+      "Nettoyage du côlon",
+      "Laxatif naturel efficace"
+    ],
+    "contraindications": [
+      "Femmes enceintes et allaitantes",
+      "Enfants de moins de 12 ans",
+      "Patients souffrant du côlon irritable",
+      "Personnes souffrant de douleurs abdominales non diagnostiquées",
+      "Utilisation prolongée (provoque une paresse intestinale)"
+    ],
+    "drugInteractions": [
+      "Médicaments cardiaques (digoxine)",
+      "Diurétiques (risque d'hypokaliémie)"
+    ],
+    "hadith": "عليكم بالسَّنا والسَّنوت، فإن فيهما شفاءً من كل داءٍ إلا السَّام",
+    "hadithSource": "Rapporté par Ibn Majah (authentifié par certains savants)",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Système digestif"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes"
+    ],
+    "imageEmoji": "🌿"
+  },
+  "costus": {
+    "id": "costus",
+    "nameAr": "القسط الهندي",
+    "nameLatin": "Saussurea costus",
+    "nameEn": "Indian Costus",
+    "category": "prophetic",
+    "usedPart": "Racines séchées et moulues",
+    "preparation": "Moulu et mélangé avec du miel ou de l'eau tiède, ou utilisé comme encens et inhalation.",
+    "dosage": "Une demi-cuillère à café de poudre avec du miel deux fois par jour",
+    "benefits": [
+      "Traitement des problèmes respiratoires",
+      "Antipyrétique",
+      "Anti-inflammatoire",
+      "Soutient la santé de la thyroïde",
+      "Renforce l'immunité"
+    ],
+    "contraindications": [
+      "Femmes enceintes",
+      "Nourrissons",
+      "Personnes allergiques aux Astéracées"
+    ],
+    "drugInteractions": [
+      "Médicaments thyroïdiens",
+      "Immunosuppresseurs"
+    ],
+    "hadith": "عليكم بهذا العود الهندي، فإن فيه سبعة أشفية: يُستعط به من العذرة، ويُلدّ به من ذات الجنب",
+    "hadithSource": "Rapporté par Al-Bukhari et Muslim",
+    "scientificEvidence": "moderate",
+    "bodySystem": [
+      "Système respiratoire",
+      "Système immunitaire",
+      "Glandes"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Adultes"
+    ],
+    "imageEmoji": "🪵"
+  },
+  "talbina": {
+    "id": "talbina",
+    "nameAr": "التلبينة",
+    "nameLatin": "Hordeum vulgare (barley)",
+    "nameEn": "Talbina (Barley Porridge)",
+    "category": "prophetic",
+    "usedPart": "Farine d'orge avec de l'eau ou du lait",
+    "preparation": "La farine d'orge est cuite avec de l'eau ou du lait jusqu'à obtenir une bouillie, sucrée avec du miel.",
+    "dosage": "Une tasse par jour",
+    "benefits": [
+      "Soulage la dépression et la tristesse",
+      "Abaisse le cholestérol",
+      "Régule la glycémie",
+      "Apaise le côlon irritable",
+      "Renforce le cœur",
+      "Aliment de convalescence"
+    ],
+    "contraindications": [
+      "Patients souffrant d'allergie au gluten (cœliaque)"
+    ],
+    "drugInteractions": [
+      "Médicaments contre le diabète (peut renforcer l'effet hypoglycémiant)"
+    ],
+    "hadith": "التلبينة مَجمّة لفؤاد المريض، تُذهب بعضَ الحُزن",
+    "hadithSource": "Rapporté par Al-Bukhari et Muslim",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Système digestif",
+      "Cœur",
+      "Bien-être psychologique"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes"
+    ],
+    "imageEmoji": "🥣"
+  },
+  "zamzam": {
+    "id": "zamzam",
+    "nameAr": "ماء زمزم",
+    "nameLatin": "Zamzam Water",
+    "nameEn": "Zamzam Water",
+    "category": "prophetic",
+    "usedPart": "L'eau bénie du puits de Zamzam",
+    "preparation": "À boire avec des invocations et de bonnes intentions.",
+    "dosage": "Sans limite spécifique",
+    "benefits": [
+      "Riche en minéraux naturels",
+      "Bénédiction spirituelle",
+      "L'eau de Zamzam est pour ce à quoi elle est bue"
+    ],
+    "contraindications": [],
+    "drugInteractions": [],
+    "hadith": "ماءُ زمزم لِما شُرب له",
+    "hadithSource": "Rapporté par Ahmad et Ibn Majah (authentifié par Al-Albani)",
+    "scientificEvidence": "limited",
+    "bodySystem": [
+      "Général"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes",
+      "Femmes enceintes"
+    ],
+    "imageEmoji": "💧"
+  },
+  "olive-oil": {
+    "id": "olive-oil",
+    "nameAr": "زيت الزيتون",
+    "nameLatin": "Olea europaea",
+    "nameEn": "Olive Oil",
+    "category": "prophetic",
+    "usedPart": "Huile d'olive extra vierge",
+    "preparation": "Une cuillère à prendre à jeun, ou à utiliser dans la cuisine et en application topique.",
+    "dosage": "Une à deux grandes cuillères par jour",
+    "benefits": [
+      "Protection du cœur et des vaisseaux",
+      "Puissant antioxydant",
+      "Hydratation de la peau et des cheveux",
+      "Anti-inflammatoire",
+      "Abaisse le mauvais cholestérol",
+      "Soutient la santé cérébrale"
+    ],
+    "contraindications": [
+      "L'excès peut entraîner une augmentation de l'apport calorique"
+    ],
+    "drugInteractions": [
+      "Médicaments contre l'hypertension artérielle (peut renforcer l'effet hypotenseur)",
+      "Médicaments contre le diabète"
+    ],
+    "hadith": "كلوا الزيت وادهنوا به، فإنه من شجرة مباركة",
+    "hadithSource": "Rapporté par Al-Tirmidhi et Ibn Majah (authentifié par Al-Albani)",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Cœur",
+      "Peau",
+      "Système digestif"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes",
+      "Femmes enceintes"
+    ],
+    "imageEmoji": "🫒"
+  },
+  "ginger": {
+    "id": "ginger",
+    "nameAr": "الزنجبيل",
+    "nameLatin": "Zingiber officinale",
+    "nameEn": "Ginger",
+    "category": "prophetic",
+    "usedPart": "Racine fraîche ou séchée",
+    "preparation": "Le frais est râpé et bouilli, ou la poudre est ajoutée aux boissons et à la nourriture.",
+    "dosage": "1 à 3 grammes de poudre par jour, ou deux tranches de frais",
+    "benefits": [
+      "Traitement des nausées et vomissements",
+      "Anti-inflammatoire",
+      "Soulage les douleurs articulaires",
+      "Améliore la digestion",
+      "Abaisse le sucre et le cholestérol",
+      "Renforce l'immunité"
+    ],
+    "contraindications": [
+      "Personnes souffrant de troubles de la coagulation",
+      "Personnes souffrant de calculs biliaires",
+      "Femmes enceintes (en grandes quantités)"
+    ],
+    "drugInteractions": [
+      "Anticoagulants",
+      "Médicaments contre le diabète",
+      "Médicaments contre l'hypertension artérielle"
+    ],
+    "hadith": "ذُكر الزنجبيل في القرآن الكريم: {وَيُسْقَوْنَ فِيهَا كَأْسًا كَانَ مِزَاجُهَا زَنجَبِيلًا} [الإنسان: 17]",
+    "hadithSource": "Coran - Sourate Al-Insan",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Système digestif",
+      "Articulations",
+      "Système immunitaire"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Adultes"
+    ],
+    "imageEmoji": "🫚"
+  },
+  "henna": {
+    "id": "henna",
+    "nameAr": "الحِنّاء",
+    "nameLatin": "Lawsonia inermis",
+    "nameEn": "Henna",
+    "category": "prophetic",
+    "usedPart": "Feuilles séchées et moulues",
+    "preparation": "Mélanger avec de l'eau pour obtenir une pâte et appliquer localement.",
+    "dosage": "Selon le besoin localement",
+    "benefits": [
+      "Antipyrétique (localement)",
+      "Traitement des mycoses des pieds",
+      "Fortifie les cheveux et prévient leur chute",
+      "Refroidit les inflammations cutanées",
+      "Cicatrisation des plaies superficielles"
+    ],
+    "contraindications": [
+      "Certains types d'allergies cutanées",
+      "Ne pas utiliser la 'henné noir' synthétique (contient du PPD toxique)"
+    ],
+    "drugInteractions": [],
+    "hadith": "ما شكا إليه ﷺ أحدٌ وجعًا في رأسه إلا قال: احتجم، ولا شكا إليه وجعًا في رجليه إلا قال: اختضب بالحناء",
+    "hadithSource": "Rapporté par Abu Dawud (authentifié par Al-Albani)",
+    "scientificEvidence": "moderate",
+    "bodySystem": [
+      "Peau",
+      "Cheveux"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Adultes"
+    ],
+    "imageEmoji": "🌿"
+  },
+  "chamomile": {
+    "id": "chamomile",
+    "nameAr": "البابونج",
+    "nameLatin": "Matricaria chamomilla",
+    "nameEn": "Chamomile",
+    "category": "traditional",
+    "usedPart": "Fleurs séchées",
+    "preparation": "Faire tremper les fleurs dans de l'eau bouillante pendant 5 à 10 minutes et boire.",
+    "dosage": "2 à 3 tasses par jour",
+    "benefits": [
+      "Apaise les nerfs et aide au sommeil",
+      "Soulage les douleurs abdominales et les coliques",
+      "Anti-inflammatoire",
+      "Traite les problèmes de peau",
+      "Soulage les douleurs menstruelles"
+    ],
+    "contraindications": [
+      "Personnes allergiques aux Astéracées",
+      "Femmes enceintes au cours des premiers mois (en grandes quantités)"
+    ],
+    "drugInteractions": [
+      "Anticoagulants",
+      "Sédatifs et hypnotiques (renforce leur effet)"
+    ],
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Système nerveux",
+      "Système digestif",
+      "Peau"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes"
+    ],
+    "imageEmoji": "🌼"
+  },
+  "fenugreek": {
+    "id": "fenugreek",
+    "nameAr": "الحلبة",
+    "nameLatin": "Trigonella foenum-graecum",
+    "nameEn": "Fenugreek",
+    "category": "traditional",
+    "usedPart": "Graines",
+    "preparation": "Faire tremper les graines dans de l'eau ou les faire bouillir et boire. Du miel peut être ajouté.",
+    "dosage": "Une petite cuillère de graines deux fois par jour",
+    "benefits": [
+      "Abaisse la glycémie",
+      "Augmente la lactation chez les mères allaitantes",
+      "Stimulant de l'appétit",
+      "Soulage les douleurs menstruelles",
+      "Abaisse le cholestérol"
+    ],
+    "contraindications": [
+      "Femmes enceintes (peut provoquer des contractions)",
+      "Patients souffrant d'hypoglycémie",
+      "Personnes allergiques aux légumineuses"
+    ],
+    "drugInteractions": [
+      "Médicaments contre le diabète",
+      "Anticoagulants",
+      "Tout médicament pris par voie orale (retarde son absorption)"
+    ],
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Système digestif",
+      "Glandes",
+      "Sang"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Femmes qui allaitent",
+      "Adultes"
+    ],
+    "imageEmoji": "🟡"
+  },
+  "sidr-leaf": {
+    "id": "sidr-leaf",
+    "nameAr": "ورق السدر",
+    "nameLatin": "Ziziphus spina-christi",
+    "nameEn": "Sidr Leaf (Lote Tree)",
+    "category": "prophetic",
+    "usedPart": "Feuilles séchées et moulues",
+    "preparation": "Les feuilles sont moulues et trempées dans l'eau, puis utilisées pour le lavage ou le bain. Elles peuvent être bues.",
+    "dosage": "Selon le besoin",
+    "benefits": [
+      "Nettoie la peau et les cheveux",
+      "Traite les problèmes du cuir chevelu",
+      "Antifongique",
+      "Favorise la croissance des cheveux",
+      "Utilisation dans l'exorcisme légal (Ruqyah)"
+    ],
+    "contraindications": [
+      "Allergies cutanées (rares)"
+    ],
+    "drugInteractions": [],
+    "hadith": "اغسلوه بماءٍ وسِدر",
+    "hadithSource": "Rapporté par Al-Bukhari et Muslim (concernant le lavage du défunt)",
+    "scientificEvidence": "moderate",
+    "bodySystem": [
+      "Peau",
+      "Cheveux"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes"
+    ],
+    "imageEmoji": "🍃"
+  },
+  "miswak": {
+    "id": "miswak",
+    "nameAr": "المسواك (السواك)",
+    "nameLatin": "Salvadora persica",
+    "nameEn": "Miswak",
+    "category": "prophetic",
+    "usedPart": "Branches de l'arbre Arak",
+    "preparation": "L'extrémité est humidifiée et utilisée pour nettoyer les dents et les gencives.",
+    "dosage": "À chaque prière ou au besoin",
+    "benefits": [
+      "Nettoyage efficace des dents",
+      "Antibactérien buccal",
+      "Fortifie les gencives et prévient l'inflammation",
+      "Blanchit naturellement les dents",
+      "Prévient la carie dentaire"
+    ],
+    "contraindications": [],
+    "drugInteractions": [],
+    "hadith": "السواك مَطهرة للفم، مَرضاة للرب",
+    "hadithSource": "Rapporté en suspens par Al-Bukhari, An-Nasa'i et d'autres (authentique)",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Bouche et dents"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes",
+      "Femmes enceintes"
+    ],
+    "imageEmoji": "🪥"
+  },
+  "dates": {
+    "id": "dates",
+    "nameAr": "التمر",
+    "nameLatin": "Phoenix dactylifera",
+    "nameEn": "Dates",
+    "category": "prophetic",
+    "usedPart": "Fruits mûrs (en particulier les dattes Ajwa de Médine)",
+    "preparation": "Consommées fraîches ou trempées dans l'eau ou le lait.",
+    "dosage": "7 dattes Ajwa le matin (selon le hadith), ou 3 à 5 dattes par jour",
+    "benefits": [
+      "Source d'énergie immédiate (sucres naturels)",
+      "Riches en fibres, fer et potassium",
+      "Facilite l'accouchement (en particulier les dattes Ajwa)",
+      "Protection contre la magie et le poison (dattes Ajwa de Médine)",
+      "Renforce les os"
+    ],
+    "contraindications": [
+      "Diabétiques (en grandes quantités)"
+    ],
+    "drugInteractions": [
+      "Médicaments contre le diabète (augmente le sucre)"
+    ],
+    "hadith": "من تصبّح بسبع تمرات عجوة، لم يضره ذلك اليوم سمٌّ ولا سِحر",
+    "hadithSource": "Rapporté par Al-Bukhari et Muslim",
+    "scientificEvidence": "strong",
+    "bodySystem": [
+      "Général",
+      "Sang",
+      "Os"
+    ],
+    "suitableFor": [
+      "Hommes",
+      "Femmes",
+      "Enfants",
+      "Adultes",
+      "Femmes enceintes"
+    ],
+    "imageEmoji": "🌴"
+  }
+}

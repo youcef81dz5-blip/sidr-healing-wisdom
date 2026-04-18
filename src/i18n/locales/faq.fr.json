@@ -1,0 +1,42 @@
+[
+  {
+    "question": "L'application remplace-t-elle une visite chez le médecin ?",
+    "answer": "Non, absolument pas. L'application Sidr est uniquement un outil d'orientation qui fournit des informations préliminaires générales. Elle ne fournit pas de diagnostic médical définitif et ne remplace pas un examen clinique direct avec un médecin spécialiste. Vous devez toujours consulter un médecin, surtout dans les cas chroniques ou aigus.",
+    "category": "Général"
+  },
+  {
+    "question": "Les recettes sont-elles sans danger pour les femmes enceintes, allaitantes ou les enfants ?",
+    "answer": "Pas nécessairement. De nombreuses herbes ont des contre-indications spécifiques pour les femmes enceintes, allaitantes et les enfants. L'application indique clairement les contre-indications dans chaque recette, mais vous devez consulter un médecin avant d'utiliser toute herbe pendant la grossesse, l'allaitement ou pour les enfants.",
+    "category": "Sécurité"
+  },
+  {
+    "question": "Puis-je combiner les herbes avec les médicaments que je prends ?",
+    "answer": "Certaines herbes interagissent avec les médicaments chimiques et peuvent augmenter ou diminuer leur effet. L'application affiche les interactions médicamenteuses connues, mais vous devez informer votre médecin ou votre pharmacien de toutes les herbes que vous prenez avec vos médicaments.",
+    "category": "Sécurité"
+  },
+  {
+    "question": "D'où proviennent les informations ? Et qui examine le contenu ?",
+    "answer": "Les informations sont tirées de sources fiables de médecine prophétique (comme 'Zad al-Ma'ad' d'Ibn al-Qayyim) et d'études scientifiques modernes publiées dans des revues médicales à comité de lecture. Les hadiths sont authentifiés et vérifiés. Nous nous efforçons de les examiner en permanence avec des spécialistes religieux et de la santé.",
+    "category": "Sources"
+  },
+  {
+    "question": "Pourquoi le résultat diffère-t-il parfois de l'avis du médecin ?",
+    "answer": "L'application n'analyse que les symptômes saisis sans examen clinique, analyses de laboratoire ou antécédents médicaux complets. Le médecin dispose d'outils de diagnostic plus précis (examen, radiographies, analyses), c'est pourquoi son avis doit toujours être suivi en priorité.",
+    "category": "Général"
+  },
+  {
+    "question": "Les photos des cas de maladies sont-elles stockées sur les serveurs ?",
+    "answer": "Non. Les photos sont envoyées directement au modèle d'intelligence artificielle pour une analyse instantanée et ne sont stockées sur aucun serveur. Après avoir obtenu le résultat, aucune trace de la photo ne subsiste. Votre vie privée est notre priorité.",
+    "category": "Confidentialité"
+  },
+  {
+    "question": "Quels types de problèmes cutanés l'application peut-elle analyser ?",
+    "answer": "L'application se concentre sur les problèmes cutanés superficiels courants (éruptions cutanées, acné, mycoses, taches, allergies...). Le résultat est approximatif et ne constitue pas un diagnostic définitif. En cas de faible confiance dans l'analyse, l'application recommandera de consulter un dermatologue.",
+    "category": "Utilisation"
+  },
+  {
+    "question": "La médecine prophétique mentionnée dans l'application est-elle basée uniquement sur des hadiths authentiques ?",
+    "answer": "Oui, nous nous engageons à ne mentionner que les hadiths Sahih (authentiques) et Hassan (bons), avec leur référence complète (transmetteur, source, degré d'authenticité). Ce qui est faible ou fabriqué n'est pas inclus. Nous distinguons clairement ce qui est établi dans la Sunna de ce qui relève des expériences populaires traditionnelles.",
+    "category": "Sources"
+  }
+]

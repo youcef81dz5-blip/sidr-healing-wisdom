@@ -1,49 +1,19 @@
-import { ArrowRight, Shield, Eye, Lock, Server, Trash2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft, ArrowRight, Shield, Eye, Lock, Server, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 export default function PrivacyPage() {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === "rtl";
+  const ArrowBack = isRtl ? ArrowRight : ArrowLeft;
 
   const sections = [
-    {
-      icon: Eye,
-      title: "ما البيانات التي نجمعها؟",
-      content: [
-        "الأعراض أو الأوصاف النصية التي تُدخلها للتحليل (تُعالج لحظيًا ولا تُخزّن).",
-        "الصور المرفقة للتحليل (تُرسل مباشرة لنموذج الذكاء الاصطناعي ولا تُحفظ على أي خادم).",
-        "لا نجمع أي بيانات شخصية مثل الاسم أو رقم الهاتف أو البريد الإلكتروني.",
-      ],
-    },
-    {
-      icon: Server,
-      title: "أين تُعالج البيانات؟",
-      content: [
-        "النصوص والصور تُرسل مباشرة إلى خوادم Google Gemini AI للتحليل.",
-        "لا نملك خوادم خاصة لتخزين بياناتك الصحية.",
-        "التحليل يتم لحظيًا ولا يُحفظ سجل لاستفساراتك السابقة.",
-      ],
-    },
-    {
-      icon: Lock,
-      title: "كيف نحمي خصوصيتك؟",
-      content: [
-        "الاتصال مشفر بالكامل عبر بروتوكول HTTPS.",
-        "لا نبيع أو نشارك أي بيانات مع أطراف ثالثة.",
-        "لا نستخدم ملفات تتبع (Cookies) لأغراض إعلانية.",
-        "لا نطلب تسجيل دخول أو إنشاء حساب.",
-      ],
-    },
-    {
-      icon: Trash2,
-      title: "الصور والبيانات الحساسة",
-      content: [
-        "الصور التي ترفعها تُحلل فوريًا ثم تُحذف تلقائيًا.",
-        "لا نحتفظ بنسخ من صورك على أي خادم.",
-        "ننصح بعدم إرفاق صور تحتوي على معلومات شخصية واضحة (الوجه، بطاقات هوية...).",
-        "في حال ظهور معلومات شخصية في الصورة، لا يتم حفظها أو معالجتها.",
-      ],
-    },
+    { icon: Eye, title: t("privacy.section1Title"), content: t("privacy.section1", { returnObjects: true }) as string[] },
+    { icon: Server, title: t("privacy.section2Title"), content: t("privacy.section2", { returnObjects: true }) as string[] },
+    { icon: Lock, title: t("privacy.section3Title"), content: t("privacy.section3", { returnObjects: true }) as string[] },
+    { icon: Trash2, title: t("privacy.section4Title"), content: t("privacy.section4", { returnObjects: true }) as string[] },
   ];
 
   return (
@@ -51,17 +21,15 @@ export default function PrivacyPage() {
       <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-lg items-center gap-3 px-4 py-3">
           <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
-            <ArrowRight className="h-5 w-5" />
+            <ArrowBack className="h-5 w-5" />
           </Button>
           <Shield className="h-5 w-5 text-primary" />
-          <h1 className="font-heading text-lg font-bold">سياسة الخصوصية</h1>
+          <h1 className="font-heading text-lg font-bold">{t("privacy.title")}</h1>
         </div>
       </header>
 
       <main className="mx-auto max-w-lg px-4 py-6 space-y-4 pb-8">
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          نلتزم في تطبيق سِدر بحماية خصوصيتك وبياناتك الصحية. هذه السياسة توضح كيف نتعامل مع معلوماتك.
-        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{t("privacy.intro")}</p>
 
         {sections.map((section, i) => (
           <div key={i} className="card-elevated p-4 space-y-2">
@@ -81,9 +49,7 @@ export default function PrivacyPage() {
         ))}
 
         <div className="rounded-lg bg-muted p-4 text-center">
-          <p className="text-[10px] text-muted-foreground">
-            آخر تحديث: أبريل 2026 — نحتفظ بحق تعديل هذه السياسة مع إشعار المستخدمين بالتغييرات الجوهرية.
-          </p>
+          <p className="text-[10px] text-muted-foreground">{t("privacy.footer")}</p>
         </div>
       </main>
     </div>

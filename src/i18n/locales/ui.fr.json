@@ -1,0 +1,263 @@
+{
+  "app": {
+    "name": "Sidr",
+    "tagline": "Votre guérisseur naturel"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "skip": "Passer",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "yes": "Oui",
+    "no": "Non",
+    "all": "Tout"
+  },
+  "nav": {
+    "herbs": "Encyclopédie des herbes",
+    "books": "Bibliothèque de livres",
+    "conditions": "Conditions courantes",
+    "faq": "FAQ",
+    "about": "À propos de nous",
+    "privacy": "Politique de confidentialité",
+    "language": "Langue",
+    "theme": "Thème",
+    "themeLight": "Clair",
+    "themeDark": "Sombre",
+    "themeSystem": "Système"
+  },
+  "welcome": {
+    "tagline": "Votre guérisseur naturel – Alliant la sagesse de la médecine prophétique à la précision de la médecine moderne",
+    "feature1": "Analyse intelligente des symptômes par texte ou image",
+    "feature2": "Traitements basés sur la Sunnah prophétique authentique",
+    "feature3": "Évaluation stricte des risques et avertissements clairs",
+    "warningTitle": "Alerte importante",
+    "warningBody1": "Cette application fournit <strong>uniquement des informations préliminaires à titre indicatif</strong> et ne propose pas de diagnostic médical définitif. Son utilisation ne remplace pas la consultation d'un médecin spécialiste. Les informations fournies sont basées sur des sources fiables mais peuvent ne pas convenir à votre situation spécifique.",
+    "warningBody2": "En cas d'urgence (douleur thoracique aiguë, difficulté respiratoire, hémorragie sévère), rendez-vous immédiatement à l'hôpital le plus proche.",
+    "accept": "J'ai compris et j'accepte les conditions",
+    "consent": "En cliquant sur \"J'ai compris et j'accepte\", vous reconnaissez avoir lu et compris que cette application est un outil d'assistance et non un substitut à un avis médical professionnel."
+  },
+  "home": {
+    "heroTitle": "Votre guérisseur naturel",
+    "heroSubtitle": "Décrivez vos symptômes ou téléchargez une photo, et nous vous fournirons une analyse médicale complète combinant la médecine moderne et la médecine prophétique",
+    "commonConditions": "Conditions courantes",
+    "imageNotice": "📸 L'analyse d'images se concentre sur les affections cutanées superficielles (éruptions cutanées, taches, acné, mycoses). Le résultat est approximatif et non un diagnostic.",
+    "inputPlaceholder": "Décrivez les symptômes ou la maladie...",
+    "newAnalysis": "Nouvelle analyse",
+    "analyzing": "Analyse complète en cours...",
+    "analyzingSub": "Combinaison de la médecine moderne et de la médecine prophétique",
+    "needSymptoms": "Veuillez décrire les symptômes ou joindre une image"
+  },
+  "followUp": {
+    "basicInfo": "Informations de base",
+    "gender": "Sexe",
+    "male": "Homme",
+    "female": "Femme",
+    "ageGroup": "Groupe d'âge",
+    "ageChild": "Enfant (0-12)",
+    "ageTeen": "Adolescent (13-17)",
+    "ageYoung": "Jeune adulte (18-35)",
+    "ageAdult": "Adulte (36-55)",
+    "ageSenior": "Sénior (56+)",
+    "pregnantQ": "Êtes-vous enceinte ou allaitez-vous ?",
+    "painLocation": "Localisation de la douleur ou des symptômes",
+    "durationSeverity": "Durée et gravité des symptômes",
+    "durationQ": "Depuis combien de temps les symptômes ont-ils commencé ?",
+    "severity": "Gravité des symptômes",
+    "medicalHistory": "Antécédents médicaux",
+    "chronicDiseases": "Maladies chroniques",
+    "currentMeds": "Médicaments actuels (facultatif)",
+    "medsPlaceholder": "Ex: Metformine, Aspirine...",
+    "analyze": "Analyser",
+    "severities": {
+      "mild": "Léger",
+      "moderate": "Modéré",
+      "severe": "Sévère",
+      "verySevere": "Très sévère"
+    },
+    "durations": {
+      "lessDay": "Moins d'un jour",
+      "fewDays": "1 à 3 jours",
+      "week": "Une semaine",
+      "moreWeek": "Plus d'une semaine",
+      "moreMonth": "Plus d'un mois",
+      "chronic": "Chronique"
+    },
+    "locations": {
+      "head": "Tête",
+      "eye": "Œil",
+      "ear": "Oreille",
+      "throat": "Gorge",
+      "chest": "Poitrine",
+      "abdomen": "Abdomen",
+      "back": "Dos",
+      "joints": "Articulations",
+      "skin": "Peau",
+      "foot": "Pied",
+      "general": "Général (corps entier)",
+      "other": "Autre"
+    },
+    "diseases": {
+      "diabetes": "Diabète",
+      "bp": "Tension artérielle",
+      "heart": "Cœur",
+      "asthma": "Asthme",
+      "kidney": "Reins",
+      "liver": "Foie",
+      "thyroid": "Thyroïde",
+      "anemia": "Anémie",
+      "bleeding": "Coagulation sanguine",
+      "none": "Aucune"
+    }
+  },
+  "emergency": {
+    "title": "⚠ Urgence potentielle",
+    "body": "D'après les symptômes que vous avez saisis, votre condition peut nécessiter une intervention médicale urgente.",
+    "bodyStrong": "Ne vous fiez pas à cette application en cas d'urgence.",
+    "symptomsTitle": "Symptômes nécessitant une urgence :",
+    "callNow": "Appelez les urgences maintenant",
+    "notEmergency": "Les symptômes ne sont pas urgents — Continuer l'analyse",
+    "symptoms": [
+      "Douleur thoracique intense ou oppression soudaine",
+      "Difficulté respiratoire sévère",
+      "Saignement important et incontrôlable",
+      "Perte de conscience ou convulsions",
+      "Mal de tête soudain et intense inhabituel",
+      "Paralysie soudaine ou difficulté à parler"
+    ]
+  },
+  "results": {
+    "urgency": "Niveau d'urgence",
+    "urgencyHigh": "Élevé",
+    "urgencyMedium": "Moyen",
+    "urgencyLow": "Faible",
+    "medicalAnalysis": "Analyse médicale",
+    "propheticMedicine": "Médecine prophétique",
+    "treatmentSteps": "Étapes du traitement",
+    "immediateActions": "Actions immédiates :",
+    "naturalRemedies": "Remèdes naturels :",
+    "whenSeeDoctor": "⚠ Quand consulter un médecin ?",
+    "riskAssessment": "Évaluation des risques",
+    "contraindications": "Contre-indications :"
+  },
+  "share": {
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "share": "Partager"
+  },
+  "books": {
+    "title": "Bibliothèque de livres",
+    "heroTitle": "Bibliothèque de médecine des herbes",
+    "heroSubtitle": "Une sélection des livres et références les plus importants dans le domaine de la phytothérapie et de la médecine prophétique",
+    "downloadSection": "Livres disponibles en téléchargement direct",
+    "externalSection": "Livres supplémentaires de la bibliothèque Nour",
+    "downloadPdf": "Télécharger le PDF",
+    "viewExternal": "Voir sur la bibliothèque Nour",
+    "browseMore": "Parcourir d'autres livres sur la phytothérapie",
+    "browseNoor": "Parcourir la bibliothèque Nour"
+  },
+  "herbs": {
+    "title": "Encyclopédie des herbes et de la médecine prophétique",
+    "search": "Rechercher une herbe...",
+    "category": "Catégorie",
+    "system": "Système",
+    "sort": "Trier par",
+    "sortName": "Alphabétique",
+    "sortEvidence": "Force des preuves",
+    "count": "Herbe",
+    "reference": "Référence légale",
+    "usageInfo": "Informations d'utilisation",
+    "usedPart": "Partie utilisée",
+    "preparation": "Méthode de préparation",
+    "dosage": "Dosage approximatif",
+    "benefits": "✅ Avantages",
+    "suitableFor": "Convient pour",
+    "contraindications": "⛔ Contre-indications",
+    "interactions": "⚠ Interactions médicamenteuses",
+    "categories": {
+      "prophetic": "Médecine prophétique",
+      "traditional": "Médecine traditionnelle",
+      "scientific": "Herbes scientifiques"
+    },
+    "evidence": {
+      "strong": "Preuves solides",
+      "moderate": "Preuves modérées",
+      "limited": "Preuves limitées"
+    }
+  },
+  "conditions": {
+    "title": "Conditions courantes",
+    "subtitle": "Les conditions les plus courantes dans la région arabe avec des conseils à base de plantes et de nutrition",
+    "notFound": "Condition introuvable",
+    "dietary": "🥗 Conseils diététiques",
+    "herbal": "🌿 Suggestions d'herbes",
+    "lifestyle": "🏃 Conseils de style de vie",
+    "disclaimer": "Ces informations sont générales et ne remplacent pas la consultation d'un médecin spécialiste"
+  },
+  "faq": {
+    "title": "Foire aux questions",
+    "categories": {
+      "general": "Général",
+      "safety": "Sécurité",
+      "sources": "Sources",
+      "privacy": "Confidentialité",
+      "usage": "Utilisation"
+    }
+  },
+  "about": {
+    "title": "À propos de nous",
+    "intro": "Une plateforme arabo-islamique qui combine la sagesse de la médecine prophétique avec la précision de la médecine moderne, en utilisant des technologies d'intelligence artificielle avancées.",
+    "missionTitle": "Notre mission",
+    "missionBody": "Nous croyons que la médecine prophétique est un trésor immense qui mérite d'être présenté de manière scientifique, contemporaine et documentée. Notre objectif est de permettre aux musulmans de profiter de cet héritage sans négliger la médecine moderne, sur une plateforme sûre et facile à utiliser.",
+    "value1Title": "Fiabilité légale",
+    "value1Body": "Nous nous basons uniquement sur les Hadiths authentiques et Hasan avec des références complètes, et nous distinguons clairement ce qui est établi dans la Sunnah de ce qui relève des expériences populaires.",
+    "value2Title": "La sécurité avant tout",
+    "value2Body": "Nous expliquons les contre-indications et les interactions médicamenteuses, et nous mettons en garde contre les symptômes dangereux. Nous ne posons pas de diagnostic mais fournissons des informations indicatives.",
+    "value3Title": "Équipe multidisciplinaire",
+    "value3Body": "Nous nous efforçons de collaborer avec des spécialistes en sciences islamiques, en médecine moderne et en phytothérapie pour garantir la qualité et la précision du contenu.",
+    "sourcesTitle": "Nos sources principales",
+    "contactTitle": "Contactez-nous",
+    "contactSub": "Vous avez une suggestion ou une remarque ? Nous serons ravis de vous entendre",
+    "footer": "L'application Sidr est un outil indicatif et ne fournit pas de diagnostic médical. Toutes les informations sont à des fins éducatives générales et ne remplacent pas la consultation d'un médecin spécialiste. Version 1.0"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "intro": "Chez Sidr, nous nous engageons à protéger votre vie privée et vos données de santé. Cette politique explique comment nous traitons vos informations.",
+    "footer": "Dernière mise à jour : avril 2026 — Nous nous réservons le droit de modifier cette politique et d'informer les utilisateurs des changements substantiels.",
+    "section1Title": "Quelles données collectons-nous ?",
+    "section1": [
+      "Les symptômes ou descriptions textuelles que vous saisissez pour l'analyse (traitées instantanément et non stockées).",
+      "Les images jointes pour l'analyse (envoyées directement au modèle d'IA et non enregistrées sur un serveur).",
+      "Nous ne collectons aucune donnée personnelle telle que votre nom, numéro de téléphone ou adresse e-mail."
+    ],
+    "section2Title": "Où les données sont-elles traitées ?",
+    "section2": [
+      "Les textes et les images sont envoyés directement aux serveurs de Google Gemini AI pour analyse.",
+      "Nous ne possédons pas de serveurs dédiés au stockage de vos données de santé.",
+      "L'analyse est effectuée instantanément et aucun historique de vos requêtes précédentes n'est enregistré."
+    ],
+    "section3Title": "Comment protégeons-nous votre vie privée ?",
+    "section3": [
+      "La connexion est entièrement chiffrée via le protocole HTTPS.",
+      "Nous ne vendons ni ne partageons aucune donnée avec des tiers.",
+      "Nous n'utilisons pas de cookies à des fins publicitaires.",
+      "Nous ne demandons pas d'enregistrement ou de création de compte."
+    ],
+    "section4Title": "Images et données sensibles",
+    "section4": [
+      "Les images que vous téléchargez sont analysées immédiatement puis supprimées automatiquement.",
+      "Nous ne conservons pas de copies de vos images sur aucun serveur.",
+      "Nous vous conseillons de ne pas joindre d'images contenant des informations personnelles claires (visage, cartes d'identité...).",
+      "Si des informations personnelles apparaissent sur l'image, elles ne sont ni enregistrées ni traitées."
+    ]
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Désolé ! Page introuvable",
+    "back": "Retour à l'accueil"
+  }
+}

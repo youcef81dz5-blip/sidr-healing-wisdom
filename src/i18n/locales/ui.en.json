@@ -1,0 +1,263 @@
+{
+  "app": {
+    "name": "Sidr",
+    "tagline": "Your Natural Healer"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "skip": "Skip",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All"
+  },
+  "nav": {
+    "herbs": "Herbal Encyclopedia",
+    "books": "Book Library",
+    "conditions": "Common Conditions",
+    "faq": "FAQ",
+    "about": "About Us",
+    "privacy": "Privacy Policy",
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System"
+  },
+  "welcome": {
+    "tagline": "Your Natural Healer — Combining the wisdom of Prophetic Medicine with the precision of Modern Medicine",
+    "feature1": "Intelligent symptom analysis by text or image",
+    "feature2": "Treatments based on authentic Prophetic traditions",
+    "feature3": "Rigorous risk assessment and clear warnings",
+    "warningTitle": "Important Alert",
+    "warningBody1": "This application provides <strong>preliminary, guided information only</strong> and does not provide a definitive medical diagnosis. Its use does not substitute consulting a specialist doctor. The information provided is based on reliable sources but may not be suitable for your specific condition.",
+    "warningBody2": "In emergencies (severe chest pain, difficulty breathing, severe bleeding), go immediately to the nearest hospital.",
+    "accept": "I understand and agree to the terms",
+    "consent": "By clicking \"I understand and agree,\" you acknowledge that you have read and understood that this application is a supportive tool and not a substitute for specialized medical consultation."
+  },
+  "home": {
+    "heroTitle": "Your Natural Healer",
+    "heroSubtitle": "Describe your symptoms or attach an image, and we will provide a comprehensive medical analysis combining modern and prophetic medicine.",
+    "commonConditions": "Common Conditions",
+    "imageNotice": "📸 Image analysis focuses on superficial skin conditions (rashes, spots, acne, fungi). The result is approximate and not a diagnosis.",
+    "inputPlaceholder": "Describe symptoms or illness...",
+    "newAnalysis": "New Analysis",
+    "analyzing": "Comprehensive analysis in progress...",
+    "analyzingSub": "Combining modern and prophetic medicine",
+    "needSymptoms": "Please describe symptoms or attach an image"
+  },
+  "followUp": {
+    "basicInfo": "Basic Information",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "ageGroup": "Age Group",
+    "ageChild": "Child (0-12)",
+    "ageTeen": "Teen (13-17)",
+    "ageYoung": "Young Adult (18-35)",
+    "ageAdult": "Adult (36-55)",
+    "ageSenior": "Senior (56+)",
+    "pregnantQ": "Are you pregnant or breastfeeding?",
+    "painLocation": "Location of Pain or Symptoms",
+    "durationSeverity": "Symptom Duration and Severity",
+    "durationQ": "How long have the symptoms started?",
+    "severity": "Symptom Severity",
+    "medicalHistory": "Medical History",
+    "chronicDiseases": "Chronic Diseases",
+    "currentMeds": "Current Medications (optional)",
+    "medsPlaceholder": "Example: Metformin, Aspirin...",
+    "analyze": "Analyze",
+    "severities": {
+      "mild": "Mild",
+      "moderate": "Moderate",
+      "severe": "Severe",
+      "verySevere": "Very Severe"
+    },
+    "durations": {
+      "lessDay": "Less than a day",
+      "fewDays": "1 to 3 days",
+      "week": "A week",
+      "moreWeek": "More than a week",
+      "moreMonth": "More than a month",
+      "chronic": "Chronic"
+    },
+    "locations": {
+      "head": "Head",
+      "eye": "Eye",
+      "ear": "Ear",
+      "throat": "Throat",
+      "chest": "Chest",
+      "abdomen": "Abdomen",
+      "back": "Back",
+      "joints": "Joints",
+      "skin": "Skin",
+      "foot": "Foot",
+      "general": "General (whole body)",
+      "other": "Other"
+    },
+    "diseases": {
+      "diabetes": "Diabetes",
+      "bp": "Blood Pressure",
+      "heart": "Heart Disease",
+      "asthma": "Asthma",
+      "kidney": "Kidney Disease",
+      "liver": "Liver Disease",
+      "thyroid": "Thyroid Disease",
+      "anemia": "Anemia",
+      "bleeding": "Bleeding Disorder",
+      "none": "None"
+    }
+  },
+  "emergency": {
+    "title": "⚠ Potential Emergency",
+    "body": "Based on the symptoms you entered, your condition may require urgent medical intervention.",
+    "bodyStrong": "Do not rely on this application in emergencies.",
+    "symptomsTitle": "Symptoms requiring emergency:",
+    "callNow": "Call Emergency Now",
+    "notEmergency": "Symptoms are not urgent — Continue analysis",
+    "symptoms": [
+      "Severe chest pain or sudden shortness of breath",
+      "Severe difficulty breathing",
+      "Uncontrolled heavy bleeding",
+      "Loss of consciousness or seizures",
+      "Sudden and unusual severe headache",
+      "Sudden paralysis or difficulty speaking"
+    ]
+  },
+  "results": {
+    "urgency": "Urgency Level",
+    "urgencyHigh": "High",
+    "urgencyMedium": "Medium",
+    "urgencyLow": "Low",
+    "medicalAnalysis": "Medical Analysis",
+    "propheticMedicine": "Prophetic Medicine",
+    "treatmentSteps": "Treatment Steps",
+    "immediateActions": "Immediate Actions:",
+    "naturalRemedies": "Natural Remedies:",
+    "whenSeeDoctor": "⚠ When to see a doctor?",
+    "riskAssessment": "Risk Assessment",
+    "contraindications": "Contraindications:"
+  },
+  "share": {
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "share": "Share"
+  },
+  "books": {
+    "title": "Book Library",
+    "heroTitle": "Herbal Medicine Library",
+    "heroSubtitle": "A curated collection of the most important books and references in herbal medicine and prophetic medicine",
+    "downloadSection": "Books available for direct download",
+    "externalSection": "Additional books from Noor Library",
+    "downloadPdf": "Download PDF",
+    "viewExternal": "View on Noor Library",
+    "browseMore": "Browse more herbal medicine books",
+    "browseNoor": "Browse Noor Library"
+  },
+  "herbs": {
+    "title": "Herbal and Prophetic Medicine Encyclopedia",
+    "search": "Search for an herb...",
+    "category": "Category",
+    "system": "System",
+    "sort": "Sort",
+    "sortName": "Alphabetical",
+    "sortEvidence": "Strength of Evidence",
+    "count": "Herb",
+    "reference": "Shariah Reference",
+    "usageInfo": "Usage Information",
+    "usedPart": "Part Used",
+    "preparation": "Preparation Method",
+    "dosage": "Approximate Dosage",
+    "benefits": "✅ Benefits",
+    "suitableFor": "Suitable For",
+    "contraindications": "⛔ Contraindications",
+    "interactions": "⚠ Drug Interactions",
+    "categories": {
+      "prophetic": "Prophetic Medicine",
+      "traditional": "Traditional Medicine",
+      "scientific": "Scientific Herbs"
+    },
+    "evidence": {
+      "strong": "Strong Evidence",
+      "moderate": "Moderate Evidence",
+      "limited": "Limited Evidence"
+    }
+  },
+  "conditions": {
+    "title": "Common Conditions",
+    "subtitle": "The most common conditions in the Arab region with herbal and nutritional advice",
+    "notFound": "Condition not found",
+    "dietary": "🥗 Dietary Advice",
+    "herbal": "🌿 Herbal Suggestions",
+    "lifestyle": "🏃 Lifestyle Tips",
+    "disclaimer": "This is general information and does not substitute consulting a specialist doctor"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "categories": {
+      "general": "General",
+      "safety": "Safety",
+      "sources": "Sources",
+      "privacy": "Privacy",
+      "usage": "Usage"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "intro": "An Arab-Islamic platform that combines the wisdom of Prophetic Medicine with the precision of Modern Medicine, using advanced Artificial Intelligence technologies.",
+    "missionTitle": "Our Mission",
+    "missionBody": "We believe that Prophetic Medicine is a great treasure that deserves to be presented in a contemporary, documented scientific manner. Our goal is to enable Muslims to benefit from this heritage without neglecting modern medicine, in a safe and easy-to-use platform.",
+    "value1Title": "Shariah Reliability",
+    "value1Body": "We rely only on authentic and good hadiths with full chains of narration, and we clearly distinguish between what is established in the Sunnah and popular experiences.",
+    "value2Title": "Safety First",
+    "value2Body": "We clarify contraindications and drug interactions, and warn against dangerous symptoms. We do not provide a diagnosis but rather indicative information.",
+    "value3Title": "Multidisciplinary Team",
+    "value3Body": "We strive to collaborate with specialists in Islamic sciences, modern medicine, and herbal medicine to ensure the quality and accuracy of the content.",
+    "sourcesTitle": "Our Primary Sources",
+    "contactTitle": "Contact Us",
+    "contactSub": "Have a suggestion or comment? We'd love to hear from you",
+    "footer": "Sidr app is an indicative tool only and does not provide medical diagnosis. All information is for general educational purposes and does not substitute consulting a specialist doctor. Version 1.0"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "At the Sidr app, we are committed to protecting your privacy and health data. This policy explains how we handle your information.",
+    "footer": "Last updated: April 2026 — We reserve the right to amend this policy with notification to users of significant changes.",
+    "section1Title": "What data do we collect?",
+    "section1": [
+      "Textual symptoms or descriptions you enter for analysis (processed instantaneously and not stored).",
+      "Images attached for analysis (sent directly to the AI model and not saved on any server).",
+      "We do not collect any personal data such as name, phone number, or email."
+    ],
+    "section2Title": "Where is data processed?",
+    "section2": [
+      "Texts and images are sent directly to Google Gemini AI servers for analysis.",
+      "We do not have private servers to store your health data.",
+      "Analysis is done instantaneously, and no history of your previous inquiries is saved."
+    ],
+    "section3Title": "How do we protect your privacy?",
+    "section3": [
+      "Communication is fully encrypted via HTTPS protocol.",
+      "We do not sell or share any data with third parties.",
+      "We do not use tracking cookies for advertising purposes.",
+      "We do not require login or account creation."
+    ],
+    "section4Title": "Images and Sensitive Data",
+    "section4": [
+      "Images you upload are analyzed immediately and then automatically deleted.",
+      "We do not keep copies of your images on any server.",
+      "We recommend not attaching images containing clear personal information (face, ID cards...).",
+      "If personal information appears in the image, it is not saved or processed."
+    ]
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Sorry! Page not found",
+    "back": "Back to Home"
+  }
+}
