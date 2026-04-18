@@ -37,25 +37,24 @@ function fileToBase64(file: File): Promise<string> {
 
 export async function analyzeCondition(
   text: string,
-  image?: File | null
+  image?: File | null,
+  language: string = "ar"
 ): Promise<AnalysisResult> {
-  const payload: { text?: string; imageBase64?: string; imageMimeType?: string } = {};
+  const payload: { text?: string; imageBase64?: string; imageMimeType?: string; language?: string } = {
+    language,
+  };
 
-  if (text) {
-    payload.text = text;
-  }
+  if (text) payload.text = text;
 
   if (image) {
     payload.imageBase64 = await fileToBase64(image);
     payload.imageMimeType = image.type;
   }
 
-  const { data, error } = await supabase.functions.invoke("analyze-condition", {
-    body: payload,
-  });
+  const { data, error } = await supabase.functions.invoke("analyze-condition", { body: payload });
 
   if (error) {
-    throw new Error("حدث خطأ أثناء التحليل، يرجى المحاولة لاحقاً");
+    throw new Error("Analysis failed, please try again");
   }
 
   if (data.error) {
