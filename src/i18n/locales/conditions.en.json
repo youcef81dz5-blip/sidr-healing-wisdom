@@ -1,0 +1,151 @@
+{
+  "ibs": {
+    "id": "ibs",
+    "name": "Irritable Bowel Syndrome",
+    "emoji": "🫄",
+    "bodySystem": "Digestive System",
+    "description": "A common functional bowel disorder causing pain, bloating, and changes in bowel habits.",
+    "dietaryTips": [
+      "Avoid gas-producing foods (legumes, onions, raw garlic)",
+      "Increase soluble fiber (oats, flaxseeds)",
+      "Eat small, regular meals",
+      "Drink plenty of water",
+      "Avoid spicy and fried foods"
+    ],
+    "herbalSuggestions": [
+      "Talbina (barley flour) — Calms the digestive system",
+      "Chamomile — Antispasmodic and anti-inflammatory",
+      "Peppermint — Relieves abdominal pain and bloating",
+      "Ginger — Digestion enhancer"
+    ],
+    "lifestyleTips": [
+      "Exercise regularly (30 minutes daily)",
+      "Relaxation techniques and deep breathing",
+      "Get enough sleep (7-8 hours)",
+      "Avoid stress and psychological pressure"
+    ]
+  },
+  "migraine": {
+    "id": "migraine",
+    "name": "Migraine",
+    "emoji": "🤕",
+    "bodySystem": "Head",
+    "description": "Severe, recurrent headaches, often on one side, which may be accompanied by nausea and light sensitivity.",
+    "dietaryTips": [
+      "Avoid triggers: chocolate, aged cheese, excessive caffeine",
+      "Maintain regular eating times",
+      "Drink plenty of water to avoid dehydration"
+    ],
+    "herbalSuggestions": [
+      "Hijama (cupping) — One of the strongest remedies for headaches proven in the Sunnah",
+      "Olive oil — Rub on forehead and temples",
+      "Black seed — Anti-inflammatory",
+      "Peppermint (topical) — Relieves tension"
+    ],
+    "lifestyleTips": [
+      "Regular and sufficient sleep",
+      "Avoid screens for long periods",
+      "Practice relaxation exercises",
+      "Avoid sudden exposure to heat or cold"
+    ]
+  },
+  "diabetes": {
+    "id": "diabetes",
+    "name": "Diabetes (Type 2)",
+    "emoji": "🩸",
+    "bodySystem": "Glands",
+    "description": "A chronic disorder of blood sugar regulation. Requires ongoing management in consultation with a doctor.",
+    "dietaryTips": [
+      "Reduce sugars and refined carbohydrates",
+      "Increase vegetables and fiber",
+      "Eat protein with every meal",
+      "Avoid canned juices and soft drinks"
+    ],
+    "herbalSuggestions": [
+      "Black seed — Studies have shown its effectiveness in regulating blood sugar",
+      "Fenugreek — Lowers blood sugar (use with caution with medications)",
+      "Cinnamon — May improve insulin sensitivity",
+      "⚠ Warning: Do not stop your medications and consult your doctor"
+    ],
+    "lifestyleTips": [
+      "Walk at least 30 minutes daily",
+      "Monitor blood sugar regularly",
+      "Check feet daily",
+      "Adhere to medication schedules"
+    ]
+  },
+  "hair-loss": {
+    "id": "hair-loss",
+    "name": "Hair Loss",
+    "emoji": "💇",
+    "bodySystem": "Skin",
+    "description": "Abnormal hair loss that may be due to iron deficiency, vitamin D deficiency, hormones, or stress.",
+    "dietaryTips": [
+      "Increase protein (eggs, fish, meat)",
+      "Iron-rich foods (spinach, lentils, dates)",
+      "Vitamin D (sun exposure for 15 minutes daily)",
+      "Zinc and biotin (nuts, seeds)"
+    ],
+    "herbalSuggestions": [
+      "Sidr leaves — To strengthen the scalp and hair",
+      "Olive oil — To moisturize and nourish hair",
+      "Henna — Strengthens hair and treats the scalp",
+      "Black seed oil — Anti-inflammatory"
+    ],
+    "lifestyleTips": [
+      "Check iron, vitamin D, and thyroid levels",
+      "Reduce stress and psychological pressure",
+      "Avoid high heat on hair",
+      "Use a gentle shampoo"
+    ]
+  },
+  "vitamin-d": {
+    "id": "vitamin-d",
+    "name": "Vitamin D Deficiency",
+    "emoji": "☀️",
+    "bodySystem": "Bones",
+    "description": "Very common in the Arab region despite the sun. Causes bone pain, fatigue, and weakened immunity.",
+    "dietaryTips": [
+      "Fatty fish (salmon, tuna, mackerel)",
+      "Egg yolk",
+      "Fortified milk",
+      "Supplements as directed by a doctor"
+    ],
+    "herbalSuggestions": [
+      "Cod liver oil — A natural source of vitamin D",
+      "Dates — Rich in supportive minerals",
+      "Honey — Supports immunity"
+    ],
+    "lifestyleTips": [
+      "Direct sun exposure 15-20 minutes daily",
+      "Best time: early morning or before sunset",
+      "Exercise outdoors",
+      "Check vitamin D levels every 6 months"
+    ]
+  },
+  "hemorrhoids": {
+    "id": "hemorrhoids",
+    "name": "Hemorrhoids",
+    "emoji": "🩹",
+    "bodySystem": "Digestive System",
+    "description": "Swelling in the veins of the rectum and anus. Common and bothersome, but usually treatable.",
+    "dietaryTips": [
+      "Increase fiber (fruits, vegetables, whole grains)",
+      "Drink at least 8 glasses of water daily",
+      "Avoid spicy foods",
+      "Eat dried figs and prunes"
+    ],
+    "herbalSuggestions": [
+      "Honey — Topically as a soothing and anti-inflammatory agent",
+      "Olive oil — Natural laxative and moisturizer",
+      "Hijama (cupping) — May be beneficial in some cases",
+      "Aloe vera gel — Topical soothing agent"
+    ],
+    "lifestyleTips": [
+      "Avoid prolonged sitting (take breaks)",
+      "Do not strain during bowel movements",
+      "Walk daily",
+      "Warm water bath (Sitz bath) for 15 minutes"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Does the app replace a doctor's visit?",
+    "answer": "No, never. The Sidr app is only a guiding tool providing general preliminary information. It does not provide a definitive medical diagnosis and does not replace a direct clinical examination with a specialist doctor. A doctor should always be consulted, especially in chronic or acute cases.",
+    "category": "General"
+  },
+  {
+    "question": "Are the recipes safe for pregnant or breastfeeding women or children?",
+    "answer": "Not necessarily. Many herbs have specific contraindications for pregnant and breastfeeding women, and children. The application explicitly states contraindications in each recipe, but a doctor should be consulted before using any herb during pregnancy, breastfeeding, or for children.",
+    "category": "Safety"
+  },
+  {
+    "question": "Can I combine herbs with the medication I am taking?",
+    "answer": "Some herbs interact with chemical medications and may increase or decrease their effectiveness. The app displays known drug interactions, but you should inform your doctor or pharmacist about any herbs you are taking with your medications.",
+    "category": "Safety"
+  },
+  {
+    "question": "What are the sources of information? And who reviews the content?",
+    "answer": "The information is derived from accredited prophetic medicine sources (such as 'Zad al-Ma'ad' by Ibn al-Qayyim), and from recent scientific studies published in peer-reviewed medical journals. Hadiths are authenticated and verified. We strive for continuous review with Sharia and health specialists.",
+    "category": "Sources"
+  },
+  {
+    "question": "Why does the result sometimes differ from the doctor's opinion?",
+    "answer": "The app analyzes only the entered symptoms without clinical examination, laboratory tests, or a complete medical history. The doctor has more accurate diagnostic tools (examination, X-rays, tests), so their opinion should always be followed.",
+    "category": "General"
+  },
+  {
+    "question": "Are images of medical conditions saved on the servers?",
+    "answer": "No. Images are sent directly to the AI model for real-time analysis and are not stored on any server. After obtaining the result, no trace of the image remains. Your privacy is our priority.",
+    "category": "Privacy"
+  },
+  {
+    "question": "What skin conditions can the application analyze?",
+    "answer": "The application focuses on common superficial skin conditions (rashes, acne, fungi, spots, allergies...). The result is approximate and not a conclusive diagnosis. In case of low analysis confidence, the app will recommend consulting a dermatologist.",
+    "category": "Usage"
+  },
+  {
+    "question": "Is the Prophetic Medicine mentioned in the application based only on authentic hadiths?",
+    "answer": "Yes, we commit to mentioning only authentic and good hadiths with their full authentication (narrator, source, degree of authenticity). What was weak or fabricated is not included. We clearly distinguish between what is established in the Sunnah and traditional popular practices.",
+    "category": "Sources"
+  }
+]
